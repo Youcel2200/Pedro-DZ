@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" role="img" aria-label="Iris Velours">
+
+<defs>
+  <linearGradient id="gold68266" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#f3e4b0"/><stop offset=".5" stop-color="#d5c38f"/><stop offset="1" stop-color="#9c7f3c"/>
+  </linearGradient>
+  <linearGradient id="liq68266" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#b08ad6"/><stop offset="1" stop-color="#5b3a8f"/>
+  </linearGradient>
+  <linearGradient id="gl68266" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#ffffff" stop-opacity=".55"/><stop offset=".35" stop-color="#ffffff" stop-opacity=".18"/>
+    <stop offset=".7" stop-color="#ffffff" stop-opacity=".25"/><stop offset="1" stop-color="#000" stop-opacity=".25"/>
+  </linearGradient>
+  <radialGradient id="glow68266" cx=".5" cy=".55" r=".6">
+    <stop offset="0" stop-color="#d5c38f" stop-opacity=".35"/><stop offset="1" stop-color="#d5c38f" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="sh68266" x="-30%" y="-10%" width="160%" height="140%"><feGaussianBlur stdDeviation="14"/></filter>
+</defs>
+<defs><radialGradient id="bg68266" cx=".5" cy=".42" r=".8"><stop offset="0" stop-color="#355040"/><stop offset="1" stop-color="#15221a"/></radialGradient></defs>
+<rect width="600" height="750" fill="url(#bg68266)"/>
+<rect x="14" y="14" width="572" height="722" rx="4" fill="none" stroke="#d5c38f" stroke-opacity=".25"/>
+
+  <ellipse cx="300" cy="650" rx="190" ry="26" fill="#000" opacity=".28" filter="url(#sh68266)"/>
+  <circle cx="300" cy="440" r="270" fill="url(#glow68266)"/>
+  <g>
+    <g fill="url(#liq68266)"><circle cx="300" cy="480" r="136"/></g>
+    <g fill="url(#gl68266)" stroke="#d5c38f" stroke-opacity=".6" stroke-width="2"><circle cx="300" cy="470" r="155"/></g>
+    <rect x="258" y="198" width="84" height="110" rx="10" fill="url(#gold68266)"/>
+    <rect x="266.0" y="306" width="68" height="22" rx="5" fill="#8a6f33"/>
+    <rect x="268" y="206" width="14" height="92" rx="6" fill="#fff" opacity=".35"/>
+  </g>
+  <text x="300" y="540" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="22" letter-spacing="4" fill="#f3e4b0" opacity=".95">IRIS VELOURS</text>
+  <line x1="262" y1="556" x2="338" y2="556" stroke="#d5c38f" stroke-width="1.5"/>
+
+<text x="300" y="716" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" letter-spacing="3" fill="#d5c38f" opacity=".7">DEMO · IMAGE ILLUSTRATIVE</text>
+</svg>

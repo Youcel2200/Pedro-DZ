@@ -1,0 +1,759 @@
+{
+  "schemaVersion": 1,
+  "isDemoData": true,
+  "products": [
+    {
+      "id": "DEMO-001",
+      "slug": "nuit-ambre",
+      "nameAr": "ليل العنبر",
+      "nameFr": "Nuit d'Ambre",
+      "brand": "Maison Atlas",
+      "descriptionAr": "عطر دافئ وعميق بروح شرقية، يفتتح بتوابل خفيفة ثم يستقر على عنبر وفانيلا ناعمة.",
+      "descriptionFr": "Un parfum chaud et profond d'esprit oriental : épices légères en ouverture, puis ambre et vanille veloutée.",
+      "price": 18500,
+      "compareAtPrice": null,
+      "sizeMl": 100,
+      "concentration": "EDP",
+      "categories": [
+        "oriental",
+        "luxury"
+      ],
+      "gender": "unisex",
+      "originCountry": "FR",
+      "authenticity": {
+        "type": "original",
+        "verified": false
+      },
+      "images": [
+        "assets/img/products/nuit-ambre-1.svg",
+        "assets/img/products/nuit-ambre-2.svg"
+      ],
+      "stock": "in_stock",
+      "published": true,
+      "addedAt": "2026-10-28",
+      "badges": [
+        "new",
+        "bestseller"
+      ],
+      "notes": {
+        "top": [
+          {
+            "ar": "هيل",
+            "fr": "Cardamome"
+          },
+          {
+            "ar": "قرفة",
+            "fr": "Cannelle"
+          }
+        ],
+        "heart": [
+          {
+            "ar": "عنبر",
+            "fr": "Ambre"
+          },
+          {
+            "ar": "ورد",
+            "fr": "Rose"
+          }
+        ],
+        "base": [
+          {
+            "ar": "فانيلا",
+            "fr": "Vanille"
+          },
+          {
+            "ar": "مسك",
+            "fr": "Musc"
+          }
+        ]
+      },
+      "family": "oriental",
+      "isDemo": true,
+      "popularity": null
+    },
+    {
+      "id": "DEMO-002",
+      "slug": "rose-sahara",
+      "nameAr": "ورد الصحراء",
+      "nameFr": "Rose Sahara",
+      "brand": "Atelier Tassili",
+      "descriptionAr": "رائحة زهرية أنيقة تجمع الورد الجزائري الطازج بلمسة فاكهية وقاعدة مسكية ناعمة.",
+      "descriptionFr": "Une signature florale élégante : rose fraîche, touche fruitée et fond musqué doux.",
+      "price": 12900,
+      "compareAtPrice": 15500,
+      "sizeMl": 50,
+      "concentration": "EDP",
+      "categories": [
+        "women"
+      ],
+      "gender": "women",
+      "originCountry": "DZ",
+      "authenticity": {
+        "type": "original",
+        "verified": false
+      },
+      "images": [
+        "assets/img/products/rose-sahara-1.svg",
+        "assets/img/products/rose-sahara-2.svg"
+      ],
+      "stock": "in_stock",
+      "published": true,
+      "addedAt": "2026-09-14",
+      "badges": [
+        "bestseller"
+      ],
+      "notes": {
+        "top": [
+          {
+            "ar": "ليتشي",
+            "fr": "Litchi"
+          },
+          {
+            "ar": "برغموت",
+            "fr": "Bergamote"
+          }
+        ],
+        "heart": [
+          {
+            "ar": "ورد",
+            "fr": "Rose"
+          },
+          {
+            "ar": "ياسمين",
+            "fr": "Jasmin"
+          }
+        ],
+        "base": [
+          {
+            "ar": "مسك أبيض",
+            "fr": "Musc blanc"
+          }
+        ]
+      },
+      "family": "floral",
+      "isDemo": true,
+      "popularity": null
+    },
+    {
+      "id": "DEMO-003",
+      "slug": "oud-aures",
+      "nameAr": "عود الأوراس",
+      "nameFr": "Oud Aurès",
+      "brand": "Oud Royal House",
+      "descriptionAr": "عود خشبي فاخر بحضور قوي ومدخّن، مناسب للمناسبات الخاصة والأمسيات.",
+      "descriptionFr": "Un oud boisé et fumé à forte présence, idéal pour les grandes occasions et les soirées.",
+      "price": 32000,
+      "compareAtPrice": null,
+      "sizeMl": 50,
+      "concentration": "Parfum",
+      "categories": [
+        "oriental",
+        "luxury",
+        "men"
+      ],
+      "gender": "men",
+      "originCountry": "AE",
+      "authenticity": {
+        "type": "original",
+        "verified": false
+      },
+      "images": [
+        "assets/img/products/oud-aures-1.svg",
+        "assets/img/products/oud-aures-2.svg"
+      ],
+      "stock": "low_stock",
+      "published": true,
+      "addedAt": "2026-10-05",
+      "badges": [
+        "new"
+      ],
+      "notes": {
+        "top": [
+          {
+            "ar": "زعفران",
+            "fr": "Safran"
+          }
+        ],
+        "heart": [
+          {
+            "ar": "عود",
+            "fr": "Oud"
+          },
+          {
+            "ar": "بخور",
+            "fr": "Encens"
+          }
+        ],
+        "base": [
+          {
+            "ar": "صندل",
+            "fr": "Santal"
+          },
+          {
+            "ar": "عنبر",
+            "fr": "Ambre"
+          }
+        ]
+      },
+      "family": "oud",
+      "isDemo": true,
+      "popularity": null
+    },
+    {
+      "id": "DEMO-004",
+      "slug": "brise-atlas",
+      "nameAr": "نسيم الأطلس",
+      "nameFr": "Brise Atlas",
+      "brand": "Maison Atlas",
+      "descriptionAr": "انتعاش حمضي بحري يومي، خفيف وأنيق للاستعمال اليومي وفي الأجواء الدافئة.",
+      "descriptionFr": "Fraîcheur citronnée et marine pour tous les jours, légère et élégante, parfaite par temps chaud.",
+      "price": 7900,
+      "compareAtPrice": null,
+      "sizeMl": 100,
+      "concentration": "EDT",
+      "categories": [
+        "men",
+        "economy"
+      ],
+      "gender": "men",
+      "originCountry": "FR",
+      "authenticity": {
+        "type": "original",
+        "verified": false
+      },
+      "images": [
+        "assets/img/products/brise-atlas-1.svg",
+        "assets/img/products/brise-atlas-2.svg"
+      ],
+      "stock": "in_stock",
+      "published": true,
+      "addedAt": "2026-08-20",
+      "badges": [],
+      "notes": {
+        "top": [
+          {
+            "ar": "ليمون",
+            "fr": "Citron"
+          },
+          {
+            "ar": "نعناع",
+            "fr": "Menthe"
+          }
+        ],
+        "heart": [
+          {
+            "ar": "ملح البحر",
+            "fr": "Sel marin"
+          },
+          {
+            "ar": "لافندر",
+            "fr": "Lavande"
+          }
+        ],
+        "base": [
+          {
+            "ar": "أخشاب بيضاء",
+            "fr": "Bois blancs"
+          }
+        ]
+      },
+      "family": "fresh",
+      "isDemo": true,
+      "popularity": null
+    },
+    {
+      "id": "DEMO-005",
+      "slug": "jardin-mitidja",
+      "nameAr": "حديقة المتيجة",
+      "nameFr": "Jardin Mitidja",
+      "brand": "Atelier Tassili",
+      "descriptionAr": "عبير أخضر منعش لأوراق الحمضيات وزهر البرتقال، متوازن ومناسب للجنسين.",
+      "descriptionFr": "Un parfum vert et frais de feuilles d'agrumes et de fleur d'oranger, équilibré et mixte.",
+      "price": 9800,
+      "compareAtPrice": null,
+      "sizeMl": 75,
+      "concentration": "EDT",
+      "categories": [
+        "unisex"
+      ],
+      "gender": "unisex",
+      "originCountry": "DZ",
+      "authenticity": {
+        "type": "original",
+        "verified": false
+      },
+      "images": [
+        "assets/img/products/jardin-mitidja-1.svg",
+        "assets/img/products/jardin-mitidja-2.svg"
+      ],
+      "stock": "in_stock",
+      "published": true,
+      "addedAt": "2026-07-02",
+      "badges": [],
+      "notes": {
+        "top": [
+          {
+            "ar": "ورق الليمون",
+            "fr": "Feuilles d'agrumes"
+          },
+          {
+            "ar": "ماندرين",
+            "fr": "Mandarine"
+          }
+        ],
+        "heart": [
+          {
+            "ar": "زهر البرتقال",
+            "fr": "Fleur d'oranger"
+          }
+        ],
+        "base": [
+          {
+            "ar": "مسك",
+            "fr": "Musc"
+          },
+          {
+            "ar": "خشب الأرز",
+            "fr": "Bois de cèdre"
+          }
+        ]
+      },
+      "family": "fresh",
+      "isDemo": true,
+      "popularity": null
+    },
+    {
+      "id": "DEMO-006",
+      "slug": "iris-velours",
+      "nameAr": "سوسن مخملي",
+      "nameFr": "Iris Velours",
+      "brand": "Maison Zéphyr",
+      "descriptionAr": "بودرية ناعمة من السوسن والبنفسج مع عمق خشبي هادئ، لمن يحب الفخامة الهادئة.",
+      "descriptionFr": "Poudré et soyeux : iris et violette sur un fond boisé discret, pour un luxe tout en retenue.",
+      "price": 21500,
+      "compareAtPrice": 24000,
+      "sizeMl": 100,
+      "concentration": "EDP",
+      "categories": [
+        "women",
+        "luxury"
+      ],
+      "gender": "women",
+      "originCountry": "FR",
+      "authenticity": {
+        "type": "original",
+        "verified": false
+      },
+      "images": [
+        "assets/img/products/iris-velours-1.svg",
+        "assets/img/products/iris-velours-2.svg"
+      ],
+      "stock": "in_stock",
+      "published": true,
+      "addedAt": "2026-10-22",
+      "badges": [
+        "new"
+      ],
+      "notes": {
+        "top": [
+          {
+            "ar": "بنفسج",
+            "fr": "Violette"
+          }
+        ],
+        "heart": [
+          {
+            "ar": "سوسن",
+            "fr": "Iris"
+          },
+          {
+            "ar": "بودرة",
+            "fr": "Poudre"
+          }
+        ],
+        "base": [
+          {
+            "ar": "خشب الأرز",
+            "fr": "Bois de cèdre"
+          },
+          {
+            "ar": "فانيلا",
+            "fr": "Vanille"
+          }
+        ]
+      },
+      "family": "floral",
+      "isDemo": true,
+      "popularity": null
+    },
+    {
+      "id": "DEMO-007",
+      "slug": "or-du-desert",
+      "nameAr": "ذهب الصحراء",
+      "nameFr": "Or du Désert",
+      "brand": "Oud Royal House",
+      "descriptionAr": "عطر مستوحى من الأسلوب الشرقي الفاخر: عسل وعنبر وبخور بلمسة ذهبية دافئة.",
+      "descriptionFr": "Inspiré du style oriental de luxe : miel, ambre et encens dans une chaleur dorée.",
+      "price": 14500,
+      "compareAtPrice": null,
+      "sizeMl": 100,
+      "concentration": "EDP",
+      "categories": [
+        "oriental",
+        "luxury",
+        "unisex"
+      ],
+      "gender": "unisex",
+      "originCountry": "",
+      "authenticity": {
+        "type": "inspired",
+        "verified": false
+      },
+      "images": [
+        "assets/img/products/or-du-desert-1.svg",
+        "assets/img/products/or-du-desert-2.svg"
+      ],
+      "stock": "in_stock",
+      "published": true,
+      "addedAt": "2026-09-30",
+      "badges": [
+        "bestseller"
+      ],
+      "notes": {
+        "top": [
+          {
+            "ar": "عسل",
+            "fr": "Miel"
+          },
+          {
+            "ar": "زعفران",
+            "fr": "Safran"
+          }
+        ],
+        "heart": [
+          {
+            "ar": "عنبر",
+            "fr": "Ambre"
+          },
+          {
+            "ar": "لبان",
+            "fr": "Oliban"
+          }
+        ],
+        "base": [
+          {
+            "ar": "مسك",
+            "fr": "Musc"
+          },
+          {
+            "ar": "صندل",
+            "fr": "Santal"
+          }
+        ]
+      },
+      "family": "oriental",
+      "isDemo": true,
+      "popularity": null
+    },
+    {
+      "id": "DEMO-008",
+      "slug": "rouge-casbah",
+      "nameAr": "أحمر القصبة",
+      "nameFr": "Rouge Casbah",
+      "brand": "Maison Zéphyr",
+      "descriptionAr": "شرقي حلو وجريء بالكرز الأسود والتوابل، لإطلالة مسائية لا تُنسى.",
+      "descriptionFr": "Un oriental gourmand et audacieux : cerise noire et épices pour une soirée mémorable.",
+      "price": 16800,
+      "compareAtPrice": null,
+      "sizeMl": 75,
+      "concentration": "EDP",
+      "categories": [
+        "women",
+        "oriental"
+      ],
+      "gender": "women",
+      "originCountry": "FR",
+      "authenticity": {
+        "type": "original",
+        "verified": false
+      },
+      "images": [
+        "assets/img/products/rouge-casbah-1.svg",
+        "assets/img/products/rouge-casbah-2.svg"
+      ],
+      "stock": "in_stock",
+      "published": true,
+      "addedAt": "2026-10-12",
+      "badges": [],
+      "notes": {
+        "top": [
+          {
+            "ar": "كرز أسود",
+            "fr": "Cerise noire"
+          },
+          {
+            "ar": "فلفل",
+            "fr": "Poivre"
+          }
+        ],
+        "heart": [
+          {
+            "ar": "ورد",
+            "fr": "Rose"
+          },
+          {
+            "ar": "لوز",
+            "fr": "Amande"
+          }
+        ],
+        "base": [
+          {
+            "ar": "عنبر",
+            "fr": "Ambre"
+          },
+          {
+            "ar": "باتشولي",
+            "fr": "Patchouli"
+          }
+        ]
+      },
+      "family": "oriental",
+      "isDemo": true,
+      "popularity": null
+    },
+    {
+      "id": "DEMO-009",
+      "slug": "azur-tipasa",
+      "nameAr": "أزرق تيبازة",
+      "nameFr": "Azur Tipasa",
+      "brand": "Maison Atlas",
+      "descriptionAr": "انتعاش مائي مشمس مستوحى من ساحل المتوسط، خفيف ومناسب للصيف.",
+      "descriptionFr": "Une fraîcheur aquatique ensoleillée inspirée du littoral méditerranéen, légère et estivale.",
+      "price": 6500,
+      "compareAtPrice": 8000,
+      "sizeMl": 100,
+      "concentration": "EDT",
+      "categories": [
+        "men",
+        "economy"
+      ],
+      "gender": "men",
+      "originCountry": "",
+      "authenticity": {
+        "type": "inspired",
+        "verified": false
+      },
+      "images": [
+        "assets/img/products/azur-tipasa-1.svg",
+        "assets/img/products/azur-tipasa-2.svg"
+      ],
+      "stock": "in_stock",
+      "published": true,
+      "addedAt": "2026-06-18",
+      "badges": [],
+      "notes": {
+        "top": [
+          {
+            "ar": "برتقال مر",
+            "fr": "Bigarade"
+          }
+        ],
+        "heart": [
+          {
+            "ar": "نوتة بحرية",
+            "fr": "Notes marines"
+          }
+        ],
+        "base": [
+          {
+            "ar": "أخشاب",
+            "fr": "Bois"
+          }
+        ]
+      },
+      "family": "fresh",
+      "isDemo": true,
+      "popularity": null
+    },
+    {
+      "id": "DEMO-010",
+      "slug": "fumee-hoggar",
+      "nameAr": "دخان الهقار",
+      "nameFr": "Fumée Hoggar",
+      "brand": "Oud Royal House",
+      "descriptionAr": "خشبي مدخّن بجلد وبخور، شخصية قوية للأمسيات الباردة.",
+      "descriptionFr": "Boisé et fumé, cuir et encens : une forte personnalité pour les soirées fraîches.",
+      "price": 19800,
+      "compareAtPrice": null,
+      "sizeMl": 100,
+      "concentration": "Parfum",
+      "categories": [
+        "men",
+        "luxury"
+      ],
+      "gender": "men",
+      "originCountry": "IT",
+      "authenticity": {
+        "type": "original",
+        "verified": false
+      },
+      "images": [
+        "assets/img/products/fumee-hoggar-1.svg",
+        "assets/img/products/fumee-hoggar-2.svg"
+      ],
+      "stock": "out_of_stock",
+      "published": true,
+      "addedAt": "2026-05-11",
+      "badges": [],
+      "notes": {
+        "top": [
+          {
+            "ar": "فلفل أسود",
+            "fr": "Poivre noir"
+          }
+        ],
+        "heart": [
+          {
+            "ar": "جلد",
+            "fr": "Cuir"
+          },
+          {
+            "ar": "بخور",
+            "fr": "Encens"
+          }
+        ],
+        "base": [
+          {
+            "ar": "باتشولي",
+            "fr": "Patchouli"
+          },
+          {
+            "ar": "خشب الغاباك",
+            "fr": "Bois de gaïac"
+          }
+        ]
+      },
+      "family": "woody",
+      "isDemo": true,
+      "popularity": null
+    },
+    {
+      "id": "DEMO-011",
+      "slug": "fleur-oranger",
+      "nameAr": "زهر البرتقال",
+      "nameFr": "Fleur d'Oranger",
+      "brand": "Atelier Tassili",
+      "descriptionAr": "رائحة بيضاء ناعمة ومشرقة لزهر البرتقال مع لمسة خوخية حلوة.",
+      "descriptionFr": "Un floral blanc lumineux de fleur d'oranger avec une touche de pêche gourmande.",
+      "price": 5900,
+      "compareAtPrice": null,
+      "sizeMl": 50,
+      "concentration": "EDT",
+      "categories": [
+        "women",
+        "economy",
+        "new"
+      ],
+      "gender": "women",
+      "originCountry": "DZ",
+      "authenticity": {
+        "type": "original",
+        "verified": false
+      },
+      "images": [
+        "assets/img/products/fleur-oranger-1.svg",
+        "assets/img/products/fleur-oranger-2.svg"
+      ],
+      "stock": "in_stock",
+      "published": true,
+      "addedAt": "2026-11-03",
+      "badges": [
+        "new"
+      ],
+      "notes": {
+        "top": [
+          {
+            "ar": "خوخ",
+            "fr": "Pêche"
+          }
+        ],
+        "heart": [
+          {
+            "ar": "زهر البرتقال",
+            "fr": "Fleur d'oranger"
+          }
+        ],
+        "base": [
+          {
+            "ar": "مسك",
+            "fr": "Musc"
+          }
+        ]
+      },
+      "family": "floral",
+      "isDemo": true,
+      "popularity": null
+    },
+    {
+      "id": "DEMO-012",
+      "slug": "musc-noir",
+      "nameAr": "المسك الأسود",
+      "nameFr": "Musc Noir",
+      "brand": "Maison Zéphyr",
+      "descriptionAr": "مسك دافئ وحسي بنفحة جلدية وعنبرية، حضور ناعم وطويل الأثر.",
+      "descriptionFr": "Un musc chaud et sensuel aux accents de cuir et d'ambre, sillage doux et persistant.",
+      "price": 11200,
+      "compareAtPrice": null,
+      "sizeMl": 50,
+      "concentration": "EDP",
+      "categories": [
+        "unisex",
+        "oriental",
+        "new"
+      ],
+      "gender": "unisex",
+      "originCountry": "",
+      "authenticity": {
+        "type": "inspired",
+        "verified": false
+      },
+      "images": [
+        "assets/img/products/musc-noir-1.svg",
+        "assets/img/products/musc-noir-2.svg"
+      ],
+      "stock": "in_stock",
+      "published": true,
+      "addedAt": "2026-11-08",
+      "badges": [
+        "new"
+      ],
+      "notes": {
+        "top": [
+          {
+            "ar": "بهار وردي",
+            "fr": "Poivre rose"
+          }
+        ],
+        "heart": [
+          {
+            "ar": "مسك أسود",
+            "fr": "Musc noir"
+          }
+        ],
+        "base": [
+          {
+            "ar": "جلد",
+            "fr": "Cuir"
+          },
+          {
+            "ar": "عنبر",
+            "fr": "Ambre"
+          }
+        ]
+      },
+      "family": "musky",
+      "isDemo": true,
+      "popularity": null
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>فحص الاتصال بقاعدة البيانات — أثر ديزاد</title>
+<style>
+  body{margin:0;font-family:Tajawal,system-ui,sans-serif;background:#f6f3ea;color:#27382A;padding:16px;line-height:1.6}
+  h1{font-size:1.25rem;margin:.2rem 0 .6rem} .box{background:#fff;border:1px solid #d5c38f;border-radius:12px;padding:12px;margin:10px 0}
+  button{font:inherit;background:#27382A;color:#fff;border:0;border-radius:10px;padding:12px 18px;margin:6px 0;width:100%}
+  .r{padding:7px 0;border-bottom:1px solid #eee;display:flex;gap:8px;align-items:flex-start} .r:last-child{border:0}
+  .ok{color:#1b7a3a;font-weight:700} .no{color:#b3261e;font-weight:700} small{color:#666;word-break:break-all}
+  #sum{font-size:1.15rem;font-weight:700;text-align:center}
+</style>
+</head>
+<body>
+<h1>فحص الاتصال بقاعدة بيانات أثر ديزاد</h1>
+<div class="box">هذه الصفحة <b>تقرأ فقط</b> بالمفتاح العام، وتجرّب كزائر أن تكتب فتُرفض المحاولات. لا تنشئ طلباً ولا تغيّر أي بيانات، ولا تعرض أي سر.</div>
+<button id="go">ابدأ الفحص</button>
+<div class="box" id="sum">لم يبدأ الفحص بعد</div>
+<div class="box" id="out"></div>
+<button id="copy" style="display:none;background:#8a7a3c">نسخ النتيجة</button>
+<script>
+(function(){
+  /* ملف مستقل: لا يحتاج أي ملف آخر. المفتاح عام (publishable) مصمَّم ليكون علنياً، وليس سراً. */
+  var URL="https://wyfjekmhnmyapymptmix.supabase.co", KEY="sb_publishable_BrK4uVlar4795k0-7GmhPg_O3gaAvT3";
+  var out=document.getElementById("out"), sum=document.getElementById("sum"), lines=[], pass=0, fail=0;
+  function add(name,good,detail){ good?pass++:fail++; lines.push((good?"✔ ":"✘ ")+name+(detail?" — "+detail:""));
+    var d=document.createElement("div"); d.className="r"; d.innerHTML='<span class="'+(good?"ok":"no")+'">'+(good?"✔":"✘")+'</span><span>'+name+(detail?'<br><small></small>':"")+'</span>';
+    if(detail) d.querySelector("small").textContent=detail; out.appendChild(d); }
+  function call(method,path,body){
+    return fetch(URL+"/rest/v1/"+path,{method:method,headers:{apikey:KEY,Authorization:"Bearer "+KEY,"Content-Type":"application/json",Prefer:"count=exact,return=minimal"},body:body?JSON.stringify(body):undefined})
+      .then(function(r){return r.text().then(function(t){var j;try{j=JSON.parse(t)}catch(e){j=null}return{status:r.status,json:j,count:(r.headers.get("content-range")||"").split("/")[1]}})});
+  }
+  function blocked(r){ return r.status===401||r.status===403||(r.status>=200&&r.status<300&&false); }
+  function run(){
+    out.innerHTML=""; lines=[]; pass=0; fail=0; sum.textContent="جارٍ الفحص…";
+    if(!URL||!KEY){ add("إعداد الاتصال موجود",false,"supabaseUrl/Key فارغان"); return done(); }
+    var Z="00000000-0000-0000-0000-000000000000", seq=Promise.resolve();
+    function T(fn){ seq=seq.then(fn).catch(function(e){ add("خطأ شبكة",false,String(e&&e.message||e)); }); }
+    T(function(){return call("GET","wilayas?select=code&limit=1",null).then(function(r){add("الاتصال بالقاعدة يعمل (HTTP "+r.status+")",r.status===200||r.status===206,"")})});
+    T(function(){return call("GET","wilayas?select=code&limit=1").then(function(r){add("قراءة الولايات: 69",r.count==="69",r.count+" ولاية")})});
+    T(function(){return call("GET","districts?select=code&limit=1").then(function(r){add("قراءة دوائر تبسة: 10",r.count==="10",r.count)})});
+    T(function(){return call("GET","communes?select=name_ar&order=code").then(function(r){var n=(r.json||[]).map(function(x){return x.name_ar});add("قراءة بلديات تبسة: 24 وبدون «بئر العاتر»",n.length===24&&n.indexOf("بئر العاتر")<0,n.length+" بلدية")})});
+    T(function(){return call("GET","categories?select=slug&order=sort_order").then(function(r){add("قراءة التصنيفات: 3",(r.json||[]).length===3,(r.json||[]).map(function(x){return x.slug}).join("، "))})});
+    T(function(){return call("GET","storefront_products?select=slug,price,images&limit=50").then(function(r){var a=r.json||[];add("قراءة المنتجات المنشورة (قراءة فقط)",r.status===200||r.status===206,a.length+" منتج منشور"+(a.length?"":" — لا منتجات بعد (متوقع)"));
+      var img=a.length&&a[0].images&&a[0].images[0]; if(img){ return fetch(URL+"/storage/v1/object/public/product-images/"+img.split("/").map(encodeURIComponent).join("/")).then(function(x){add("صورة أول منتج تُحمَّل من Storage",x.ok,"HTTP "+x.status)}); } else add("صور المنتجات",true,"لا صور بعد (متوقع)"); })});
+    T(function(){return call("GET","delivery_zones?select=fee_dzd&fee_dzd=not.is.null&limit=1").then(function(r){add("أسعار التوصيل: لم تُحدَّد بعد (لا أسعار مخترعة)",r.count==="0"||r.count==="*/0"||(r.json||[]).length===0,"المحدد: "+(r.json||[]).length)})});
+    T(function(){return call("GET","store_settings?select=key").then(function(r){add("الإعدادات العامة مقروءة",(r.status===200||r.status===206)&&(r.json||[]).length>0,(r.json||[]).length+" إعداد")})});
+    // محاولات الزائر الممنوعة (يجب أن تفشل كلها)
+    ["orders","order_items","profiles"].forEach(function(t){ T(function(){return call("GET",t+"?select=*&limit=1").then(function(r){var empty=r.status===200&&(r.json||[]).length===0&&false; add("الزائر لا يقرأ «"+t+"»",r.status===401||r.status===403,"HTTP "+r.status)})}); });
+    T(function(){return call("POST","products",{slug:"zz-must-be-blocked"}).then(function(r){add("الزائر لا يضيف منتجاً",r.status===401||r.status===403,"HTTP "+r.status)})});
+    T(function(){return call("PATCH","products?id=eq."+Z,{price:1}).then(function(r){add("الزائر لا يغيّر الأسعار",r.status===401||r.status===403,"HTTP "+r.status)})});
+    T(function(){return call("PATCH","inventory?product_id=eq."+Z,{quantity:999}).then(function(r){add("الزائر لا يغيّر المخزون",r.status===401||r.status===403,"HTTP "+r.status)})});
+    T(function(){return call("DELETE","products?id=eq."+Z).then(function(r){add("الزائر لا يحذف منتجاً",r.status===401||r.status===403,"HTTP "+r.status)})});
+    T(function(){return call("POST","profiles",{id:Z,role:"admin"}).then(function(r){add("الزائر لا ينشئ صلاحية مدير",r.status===401||r.status===403,"HTTP "+r.status)})});
+    T(function(){return call("POST","orders",{customer_name:"x"}).then(function(r){add("الزائر لا يُدرج طلباً مباشرة",r.status===401||r.status===403,"HTTP "+r.status)})});
+    seq.then(done);
+  }
+  function done(){ sum.innerHTML=(fail?'<span class="no">':'<span class="ok">')+"نجح "+pass+" — فشل "+fail+(fail?" ⚠":" ✔")+"</span>"; var c=document.getElementById("copy"); c.style.display="block"; c.onclick=function(){var t="نجح "+pass+" — فشل "+fail+"\n"+lines.join("\n"); (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){c.textContent="تم النسخ ✔"},function(){c.textContent="انسخ يدوياً من الشاشة"})}; }
+  document.getElementById("go").onclick=run;
+})();
+</script>
+</body>
+</html>

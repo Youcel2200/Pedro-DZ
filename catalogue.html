@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>جميع العطور | أثر ديزاد Athar DZ</title>
+<meta name="description" content="تصفّح كتالوج العطور الكامل مع البحث والتصفية حسب الفئة والسعر والحجم والتركيز.">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#16221a">
+<link rel="canonical" href="https://athar-dz.example/catalogue.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="أثر ديزاد | Athar DZ">
+<meta property="og:title" content="جميع العطور | أثر ديزاد Athar DZ">
+<meta property="og:description" content="تصفّح كتالوج العطور الكامل مع البحث والتصفية حسب الفئة والسعر والحجم والتركيز.">
+<meta property="og:image" content="assets/img/logo-circle-630.png">
+<link rel="icon" type="image/png" sizes="48x48" href="assets/icons/favicon-48.png">
+<link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Tajawal:wght@400;500;700;800&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<link rel="manifest" href="/manifest.webmanifest">
+</head>
+<body data-title-key="meta.catalog.title" data-desc-key="meta.catalog.desc">
+<script>window.ATHAR_BASE="";</script>
+<div id="site-header"></div>
+<main id="main">
+  <div class="page-head"><div class="container"><h1 id="cat-h1" data-i18n="cat.h1">جميع العطور</h1><p data-i18n="cat.lead">تصفّح الكتالوج الكامل، وابحث وصفِّ حسب ما يناسبك.</p></div></div>
+  <div class="container cat-layout">
+    <form class="filters" id="filters" aria-label="Filtres" novalidate>
+      <div id="f-form-wrap"></div>
+      <div class="filters__grid" id="f-form">
+        <div class="fld"><label for="f-q" data-i18n="f.search">بحث بالاسم أو العلامة</label><input id="f-q" type="search" autocomplete="off"></div>
+        <div class="fld"><label for="f-cat" data-i18n="f.category">الفئة</label><select id="f-cat"></select></div>
+        <fieldset class="fld"><legend data-i18n="f.priceMin">السعر من</legend>
+          <div class="fld__row"><input id="f-min" type="number" min="0" step="100" inputmode="numeric" placeholder="0" data-i18n-attr="aria-label:f.priceMin"><input id="f-max" type="number" min="0" step="100" inputmode="numeric" placeholder="∞" data-i18n-attr="aria-label:f.priceMax"></div></fieldset>
+        <fieldset class="fld"><legend data-i18n="f.size">الحجم</legend><div class="chks" id="f-sizes"></div></fieldset>
+        <fieldset class="fld"><legend data-i18n="f.concentration">التركيز</legend><div class="chks" id="f-concs"></div></fieldset>
+        <div class="fld"><label for="f-gender" data-i18n="f.gender">الفئة المستهدفة</label><select id="f-gender"></select></div>
+        <div class="fld"><label for="f-type" data-i18n="f.type">النوع</label><select id="f-type"></select></div>
+        <label class="chk chk--row"><input type="checkbox" id="f-stock"><span data-i18n="f.inStock">المتوفر فقط</span></label>
+      </div>
+      <div class="filters__actions">
+        <button class="btn btn--outline" type="button" id="f-reset" data-i18n="f.reset">إعادة التعيين</button>
+        <button class="btn btn--gold filters__apply" type="button" id="filters-apply" data-i18n="f.apply">عرض النتائج</button>
+      </div>
+    </form>
+    <div class="cat-main">
+      <div class="toolbar">
+        <p class="toolbar__count" id="res-count" aria-live="polite"></p>
+        <button class="filters-toggle" type="button" id="filters-toggle" aria-expanded="false" aria-controls="filters"><span data-i18n="f.filters">التصفية</span> <span id="filters-n"></span></button>
+        <div class="sort"><label for="f-sort" data-i18n="f.sort">الترتيب</label><select id="f-sort"></select></div>
+      </div>
+      <div class="grid" id="grid" style="margin-top:1.2rem"></div>
+    </div>
+  </div>
+</main>
+<div id="site-footer"></div>
+<script src="js/config.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/i18n-shop.js"></script>
+<script src="js/data.js"></script>
+<script src="js/filters.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/products-data.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/catalog.js"></script>
+<script src="/js/pwa.js" defer></script>
+</body>
+</html>

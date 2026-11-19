@@ -1,0 +1,1061 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob: https://*.supabase.co; connect-src https://*.supabase.co; base-uri 'none'">
+<meta name="theme-color" content="#27382a">
+<title>لوحة إدارة أثر ديزاد</title>
+<meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="إدارة أثر">
+<style>
+:root{--g9:#16221a;--g7:#27382a;--g6:#355040;--gold:#d5c38f;--gold6:#a8893f;--cream:#f7f3ea;--ivory:#fcfaf5;--line:#e4ddcb;--ink:#1b221d;--muted:#5f655d;--bad:#9b2c2c;--ok:#2f6b43;--warn:#9a6a12;--r:12px;--f:"Tajawal","Segoe UI",system-ui,"Noto Sans Arabic",Arial,sans-serif}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--f);background:var(--cream);color:var(--ink);font-size:16px;line-height:1.6}
+a{color:var(--g6)}h1{font-size:1.5rem;margin:.2em 0 .6em;color:var(--g7)}h2{font-size:1.1rem;margin:.2em 0 .6em;color:var(--g7)}
+.boot{text-align:center;padding:3rem}.muted{color:var(--muted)}.small{font-size:.85rem}.err{color:var(--bad);font-weight:700}
+input,select,textarea,button{font:inherit;color:inherit}
+input,select,textarea{width:100%;min-height:44px;padding:.55rem .75rem;border:1px solid var(--line);border-radius:10px;background:#fff}
+input[type=checkbox]{width:20px;height:20px;min-height:0}
+input:focus,select:focus,textarea:focus,button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:1px}
+.fld{display:block;margin:.6rem 0}.fld>span{display:block;font-weight:700;margin-bottom:.25rem;font-size:.92rem}
+.chk{display:inline-flex;align-items:center;gap:.4rem;margin:.3rem .6rem .3rem 0}
+.btn{min-height:44px;padding:.5rem 1rem;border:1px solid var(--g7);background:#fff;color:var(--g7);border-radius:10px;cursor:pointer;font-weight:700}
+.btn.pri{background:var(--g7);color:#fff}.btn.danger{background:var(--bad);border-color:var(--bad);color:#fff}.btn.sm{min-height:38px;padding:.3rem .7rem;font-size:.9rem}.btn.wide{width:100%}
+.btn:disabled{opacity:.6;cursor:wait}
+.row{display:flex;align-items:center;gap:.6rem}.row.gap{gap:.6rem;margin:.6rem 0}.row.wrap{flex-wrap:wrap}.row.end{justify-content:flex-end;margin-top:1rem}
+.card{background:var(--ivory);border:1px solid var(--line);border-radius:var(--r);padding:1rem;margin:0 0 1rem;box-shadow:0 6px 18px -14px rgba(16,26,19,.4)}
+.note{background:#fff7dc;border:1px solid var(--gold);border-radius:var(--r);padding:.7rem 1rem;margin:.5rem 0 1rem}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem;margin-bottom:1rem}
+.cards .card{margin:0;text-align:center}.cards b{display:block;font-size:1.5rem;color:var(--g7)}
+.badge{display:inline-block;padding:.05rem .6rem;border-radius:99px;font-size:.8rem;font-weight:700;background:#eee}
+.badge.ok{background:#dcefe2;color:var(--ok)}.badge.warn{background:#fbeccb;color:var(--warn)}.badge.bad{background:#f6d9d9;color:var(--bad)}.badge.info{background:#dde8f5;color:#27527a}.badge.mut{background:#e6e6e0;color:var(--muted)}
+.tbl{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:.93rem}th,td{padding:.5rem .6rem;text-align:start;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--muted);font-size:.82rem}
+td small,.irow small,.wn small{display:block;color:var(--muted);font-size:.78rem}tr.clk{cursor:pointer}tr.clk:hover{background:#f1ebd9}
+.bars{display:flex;align-items:flex-end;gap:4px;height:140px;padding-top:8px}.bar{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center}.bar i{display:block;width:100%;background:var(--g6);border-radius:4px 4px 0 0}.bar small{font-size:.65rem;color:var(--muted)}
+.tabs{display:flex;gap:.4rem;margin-bottom:1rem}.tabs a{padding:.5rem 1rem;border-radius:99px;border:1px solid var(--line);text-decoration:none;background:#fff}.tabs a.on{background:var(--g7);color:#fff}
+.irow{display:grid;grid-template-columns:1fr auto auto auto;gap:.6rem;align-items:center;padding:.6rem 0;border-bottom:1px solid var(--line)}
+.qty{display:flex;gap:4px}.qty input{width:70px;text-align:center}.ib{width:44px;min-height:44px;border:1px solid var(--line);border-radius:10px;background:#fff;font-size:1.2rem;cursor:pointer}
+.crow{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:.5rem;align-items:center;padding:.5rem 0;border-bottom:1px solid var(--line)}.crow.sub{padding-inline-start:1.2rem;border-inline-start:3px solid var(--gold)}.crow .s{max-width:90px}.code{color:var(--muted);font-size:.85rem}
+.frow{display:grid;grid-template-columns:2fr 1fr 70px 70px 50px auto;gap:.5rem;align-items:center;padding:.5rem 0;border-bottom:1px solid var(--line)}.fhead{font-weight:700;color:var(--muted);font-size:.8rem}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:.2rem .8rem;margin:.6rem 0}.kv span{color:var(--muted)}
+/* الهيكل */
+.shell{min-height:100vh}.top{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:.6rem;background:var(--g7);color:#fff;padding:.5rem .8rem}
+.top .brand{font-size:1.1rem;color:var(--gold)}.top .brand small{color:#fff;font-weight:400;font-size:.75rem}.top .who{margin-inline-start:auto;font-size:.8rem;opacity:.85}.top .btn{background:transparent;color:#fff;border-color:#fff}
+.menu{display:none;background:none;border:0;color:#fff;font-size:1.5rem;min-width:44px;min-height:44px;cursor:pointer}
+.nav{position:fixed;top:56px;bottom:0;inset-inline-start:0;width:200px;background:var(--g9);padding:.6rem;overflow:auto}.nav a{display:flex;gap:.6rem;align-items:center;color:#e9e4d2;text-decoration:none;padding:.65rem .8rem;border-radius:10px;min-height:44px}.nav a.on,.nav a:hover{background:var(--g6);color:#fff}.nav i{font-style:normal;width:1.2rem;text-align:center;color:var(--gold)}
+main#view{margin-inline-start:200px;padding:1rem;max-width:1100px}
+@media(max-width:800px){.menu{display:block}.nav{display:none;inset-inline:0;width:auto}.nav.open{display:block}main#view{margin:0;padding:.8rem}.who{display:none}.top .btn{margin-inline-start:auto}.frow{grid-template-columns:1fr 1fr 1fr;}.frow .wn{grid-column:1/-1}.fhead{display:none}.irow{grid-template-columns:1fr auto}.irow .qty{grid-column:1/-1}}
+/* الدخول */
+.login{min-height:100vh;display:grid;place-items:center;padding:1rem;background:linear-gradient(160deg,var(--g9),var(--g6))}.lbox{background:var(--ivory);border-radius:18px;padding:1.6rem;width:100%;max-width:380px;box-shadow:0 20px 50px -20px #000}.logo{font-size:2rem;font-weight:700;text-align:center;color:var(--g7)}.sub{text-align:center;color:var(--gold6);margin-bottom:1rem}
+/* نوافذ وإشعارات */
+.ov{position:fixed;inset:0;background:rgba(10,16,12,.6);z-index:50;display:flex;align-items:flex-start;justify-content:center;overflow:auto;padding:1rem}.modal{background:var(--ivory);border-radius:var(--r);padding:1.2rem;width:100%;max-width:640px;margin:auto}
+#toasts{position:fixed;bottom:1rem;inset-inline:1rem;z-index:60;display:flex;flex-direction:column;align-items:center;gap:.4rem;pointer-events:none}.toast{background:var(--g9);color:#fff;padding:.6rem 1rem;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,.3)}.toast.ok{background:var(--ok)}.toast.err{background:var(--bad)}
+/* المنتجات والصور */
+a.stat{text-decoration:none;color:inherit;display:block}.stat span{color:var(--muted);font-size:.85rem}
+.row.between{justify-content:space-between;flex-wrap:wrap}.check,.plain{list-style:none;padding:0;margin:0}.check li,.plain li{padding:.3rem 0;border-bottom:1px dashed var(--line)}
+.plist{display:flex;flex-direction:column;gap:.5rem;margin-top:.8rem}.prow{display:flex;gap:.8rem;align-items:center;background:var(--ivory);border:1px solid var(--line);border-radius:var(--r);padding:.5rem;text-decoration:none;color:inherit}
+.prow:hover{border-color:var(--gold6)}.thumb{width:64px;height:64px;border-radius:10px;overflow:hidden;background:#ece6d3;flex:none;display:grid;place-items:center}.thumb img{width:100%;height:100%;object-fit:cover}.thumb i{font-size:.65rem;color:var(--muted);font-style:normal;text-align:center}
+.pinfo{flex:1;min-width:0}.pinfo small{display:block;color:var(--muted)}
+.formgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.4rem .9rem}.formgrid .full,fieldset.full{grid-column:1/-1}.formgrid.inner{border:0;padding:0}
+fieldset{border:1px solid var(--line);border-radius:10px;padding:.6rem .8rem;margin:.4rem 0}legend{font-weight:700;padding:0 .4rem;color:var(--g7)}
+.igrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:.7rem;margin:.8rem 0}.igrid figure{margin:0;border:2px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}.igrid figure.pri{border-color:var(--gold6)}.igrid img{display:block;width:100%;aspect-ratio:1;object-fit:cover}.igrid figcaption{display:flex;gap:4px;justify-content:center;padding:4px;flex-wrap:wrap}
+.ib.bad{color:var(--bad)}.danger-zone{border-color:#e3b9b9}.upl{display:inline-flex;align-items:center}
+
+.bell{position:relative;background:none;border:0;color:#fff;font-size:1.4rem;min-width:44px;min-height:44px;cursor:pointer;margin-inline-start:auto}.bell span{position:absolute;top:2px;inset-inline-end:2px;background:#d63b3b;color:#fff;font-size:.7rem;font-weight:700;min-width:18px;height:18px;border-radius:9px;display:grid;place-items:center;padding:0 4px}.bell span[hidden]{display:none}.top .who{margin-inline-start:0}
+
+.urow{display:flex;gap:.8rem;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:.7rem 0;border-bottom:1px solid var(--line)}.urow small{display:block;color:var(--muted)}.ustat{display:flex;gap:.3rem;flex-wrap:wrap}
+
+.chk-list{list-style:none;padding:0;margin:0}.chk-list li{padding:.45rem 0;border-bottom:1px solid var(--line)}.chk-list li small{display:block;color:var(--muted);font-size:.8rem;word-break:break-all}.chk-list .ok{color:var(--ok)}.chk-list .bad{color:var(--bad);font-weight:700}.chk-list .warn{color:var(--warn)}.chk-list li.ok small,.chk-list li.warn small,.chk-list li.bad small{color:var(--muted)}
+
+</style>
+</head>
+<body>
+<div id="app"><p class="boot">جارٍ التحميل…</p></div>
+<noscript><p class="boot">تتطلب لوحة الإدارة تفعيل JavaScript.</p></noscript>
+<script>
+/* ==========================================================================
+   أثر ديزاد | Athar DZ — ملف الإعدادات الوحيد
+   --------------------------------------------------------------------------
+   عدّل هذا الملف فقط لتغيير بيانات التواصل والشبكات الاجتماعية والإعدادات العامة.
+   - اترك أي قيمة فارغة ("") ليختفي عنصرها تلقائياً من الموقع.
+   - لا تضع هنا أبداً أي مفتاح سري (service_role). المفتاح العام (publishable/anon) فقط عند ربط قاعدة البيانات لاحقاً.
+   - هذا المشروع مستقل تماماً عن مشروع Chef Tamara وعن قاعدة بياناته.
+   ========================================================================== */
+
+window.ATHAR_CONFIG = {
+  brand: {
+    nameAr: "أثر ديزاد",
+    nameLatin: "Athar DZ",
+    // العبارة التسويقية الرسمية كما وردت في ملف الشعار المعتمد — لا تغيّرها.
+    sloganAr: "الثقة تبدأ بعد أول تجربة",
+    byline: "by bedro"
+  },
+
+  // رابط الموقع النهائي (يُستخدم في SEO وsitemap). غيّره عند اعتماد النطاق الحقيقي ثم شغّل: python3 scripts/build.py
+  siteUrl: "https://athar-dz.example",
+
+  defaultLang: "ar", // "ar" أو "fr"
+
+  currency: { ar: "د.ج", fr: "DA" },
+
+  // معلومات التواصل الرسمية (الفارغ منها لا يظهر)
+  contact: {
+    phone: "+213 771 68 32 94", // يُعرض كما هو ويُحوَّل تلقائياً إلى رابط اتصال
+    email: "",
+    address: "",
+    workingHours: ""
+  },
+
+  // الشبكات الاجتماعية — روابط كاملة، وما تتركه فارغاً لا يظهر
+  social: {
+    facebook: "https://www.facebook.com/share/1CuLwbg5AG/",
+    instagram: "https://www.instagram.com/911_perfum?mdxt=czV6OXA4bWUyMGk=",
+    tiktok: "https://www.tiktok.com/@pedro_parfums12?_r=1&_t=ZS-9BP3XnWJu4r",
+    youtube: "",
+    whatsapp: "https://wa.me/213771683294" // رابط محادثة مباشرة؛ يُستعمل في التذييل وفي زر واتساب العائم
+  },
+
+  // مصدر البيانات
+  //  "supabase" : (الحالي) يقرأ المنتجات والتصنيفات والصور من قاعدة Supabase الحقيقية، بالمفتاح العام فقط.
+  //  "local"    : يقرأ data/products.json — للرجوع الفوري: غيّر الكلمة mode إلى "local" فقط (أو شغّل scripts/use-local.sh)
+  //  fallbackToLocal: عند تعذّر الوصول للقاعدة (شبكة/عطل) يعمل المتجر مؤقتاً بالبيانات المحلية التجريبية بدل صفحة فارغة.
+  //  الطلبات الحقيقية مفعّلة (order.channel = "supabase"): الطلب يُسجَّل في القاعدة.
+  dataSource: {
+    mode: "supabase",
+    localUrl: "data/products.json",
+    supabaseUrl: "https://wyfjekmhnmyapymptmix.supabase.co",
+    supabaseKey: "sb_publishable_BrK4uVlar4795k0-7GmhPg_O3gaAvT3", // مفتاح عام (publishable) مصمَّم ليكون علنياً؛ لا تضع هنا service_role أبداً
+    fallbackToLocal: true
+  },
+
+  // إعدادات الطلب (المرحلة 2) — لا تُخترع أرقام ولا أسعار توصيل: اتركها فارغة حتى تعتمد قيمك الحقيقية
+  order: {
+    // رقم واتساب المتجر بالصيغة الدولية، مثال: "213555123456" (الأرقام فقط أو مع + ومسافات). فارغ = الإرسال عبر واتساب غير مفعّل.
+    whatsappNumber: "",
+    maxQtyPerItem: 10,  // الحد الأقصى للكمية من كل عطر في الطلب الواحد
+    // قناة تسجيل الطلب:
+    //  "whatsapp" : (للرجوع السريع) الطلب يُجهَّز كرسالة واتساب/نسخ، ولا يُسجَّل في أي قاعدة.
+    //  "supabase" : (الحالي — مفعّل) يُسجَّل الطلب في قاعدة Supabase عبر الدالة الآمنة create_order فيظهر في لوحة الإدارة مع تنبيه الجرس.
+    //               القاعدة تقرأ الأسعار والمخزون بنفسها ولا تثق بأي سعر يُرسله المتصفح. للتفعيل غيّر الكلمة فقط ثم انشر.
+    channel: "supabase"
+  },
+
+  // تكلفة التوصيل: null = «تُحدَّد لاحقاً». يمكنك وضع سعر عام، أو سعر خاص لكل ولاية برمزها (مثال: "16": 600)
+  delivery: {
+    defaultFee: null,
+    byWilaya: {}
+  },
+
+  // مزايا مؤجلة للمراحل القادمة
+  features: {
+    cart: true,           // السلة تعمل في المتصفح (المرحلة 2)
+    popularitySort: true  // يظهر خيار «الأكثر طلباً» تلقائياً فقط إذا وُجدت قيم popularity حقيقية في البيانات
+  },
+
+  // شريط التنبيه الخاص بالبيانات التجريبية يظهر تلقائياً عندما تكون البيانات تجريبية (isDemoData=true)
+  newBadgeDays: 45
+};
+
+/* لوحة إدارة أثر ديزاد — النواة: الإعداد، الأدوات، المصادقة (Supabase Auth)، REST، Storage.
+   لا يوجد هنا أي سر: المفتاح العام فقط؛ الحماية الحقيقية في سياسات RLS داخل القاعدة. */
+(function () {
+  "use strict";
+  var DS = ((window.ATHAR_CONFIG || {}).dataSource) || {};
+  var URL_ = (DS.supabaseUrl || "").replace(/\/+$/, ""), KEY = DS.supabaseKey || "", BUCKET = "product-images", SKEY = "athar_admin_session";
+  var session = null;
+
+  /* ---------- نص آمن ---------- */
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  function raw(s) { return { __raw: String(s == null ? "" : s) }; }
+  function ins(v) { if (v == null || v === false) return ""; if (Array.isArray(v)) return v.map(ins).join(""); if (typeof v === "object" && v.__raw !== undefined) return v.__raw; return esc(v); }
+  function html(strings) { var vals = Array.prototype.slice.call(arguments, 1), o = ""; strings.forEach(function (s, i) { o += s + (i < vals.length ? ins(vals[i]) : ""); }); return raw(o); }
+  function mount(el, h) { el.innerHTML = h && h.__raw !== undefined ? h.__raw : String(h || ""); }
+
+  /* ---------- تنسيق ---------- */
+  function money(n) { if (n == null || n === "") return "—"; return Number(n).toLocaleString("en-US", { maximumFractionDigits: 2 }) + " د.ج"; }
+  function dt(s) { if (!s) return "—"; var d = new Date(s); if (isNaN(d)) return "—"; return d.toLocaleDateString("fr-DZ") + " " + d.toLocaleTimeString("fr-DZ", { hour: "2-digit", minute: "2-digit" }); }
+  function slugify(s) { return String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, ""); }
+  var STATUS_AR = { pending: "جديد", confirmed: "مؤكَّد", preparing: "قيد التجهيز", shipped: "تم الشحن", delivered: "تم التسليم", cancelled: "ملغى", returned: "مرتجع" };
+  var PSTATUS_AR = { draft: "مسودة (مخفي)", published: "منشور", archived: "مؤرشف (مخفي)" };
+
+  /* ---------- أخطاء ---------- */
+  var ERR_AR = { "23505": "القيمة مكرّرة (موجودة من قبل).", "23503": "لا يمكن إتمام العملية لوجود بيانات مرتبطة (مثل طلبات). يمكنك أرشفة العنصر بدل حذفه.", "23514": "قيمة غير مقبولة، تحقق من الأرقام والحقول.", "23502": "حقل إلزامي فارغ.", "42501": "ليست لديك صلاحية لهذه العملية.", "P0001": "العملية مرفوضة من القاعدة." };
+  function apiError(status, j) { var e = new Error((j && ERR_AR[j.code]) || (status === 403 ? ERR_AR["42501"] : (j && (j.message || j.msg)) || ("خطأ " + status))); e.status = status; e.code = j && j.code; e.raw = j; return e; }
+  function authErr() { var e = new Error("انتهت الجلسة، سجّل الدخول من جديد."); e.auth = true; return e; }
+
+  /* ---------- الجلسة ---------- */
+  function saveS(s) { session = s; try { if (s) localStorage.setItem(SKEY, JSON.stringify(s)); else localStorage.removeItem(SKEY); } catch (e) { } }
+  function loadS() { try { session = JSON.parse(localStorage.getItem(SKEY) || "null"); } catch (e) { session = null; } return session; }
+  function setSession(j) { saveS({ access_token: j.access_token, refresh_token: j.refresh_token, expires_at: j.expires_at || (Math.floor(Date.now() / 1000) + (j.expires_in || 3600)), user: { id: j.user && j.user.id, email: j.user && j.user.email } }); }
+  async function login(email, password) {
+    var r = await fetch(URL_ + "/auth/v1/token?grant_type=password", { method: "POST", headers: { apikey: KEY, "Content-Type": "application/json" }, body: JSON.stringify({ email: email, password: password }) });
+    var j = await r.json().catch(function () { return {}; });
+    if (!r.ok) { var e = new Error(r.status === 400 || r.status === 401 ? "البريد الإلكتروني أو كلمة المرور غير صحيحة." : "تعذّر تسجيل الدخول، حاول لاحقاً."); e.status = r.status; throw e; }
+    setSession(j);
+  }
+  async function refresh() {
+    if (!session || !session.refresh_token) return false;
+    var r = await fetch(URL_ + "/auth/v1/token?grant_type=refresh_token", { method: "POST", headers: { apikey: KEY, "Content-Type": "application/json" }, body: JSON.stringify({ refresh_token: session.refresh_token }) });
+    if (!r.ok) { saveS(null); return false; }
+    setSession(await r.json()); return true;
+  }
+  async function logout() {
+    var t = session && session.access_token; saveS(null);
+    try { if (t) await fetch(URL_ + "/auth/v1/logout", { method: "POST", headers: { apikey: KEY, Authorization: "Bearer " + t } }); } catch (e) { }
+  }
+  async function req(url, opts, retried) {
+    if (!session) throw authErr();
+    if (session.expires_at - Date.now() / 1000 < 60) await refresh();
+    if (!session) throw authErr();
+    opts.headers = Object.assign({}, opts.headers, { apikey: KEY, Authorization: "Bearer " + session.access_token });
+    var r = await fetch(url, opts);
+    if (r.status === 401 && !retried) { if (await refresh()) return req(url, opts, true); saveS(null); throw authErr(); }
+    return r;
+  }
+
+  /* ---------- REST ---------- */
+  async function rest(method, path, body, o) {
+    o = o || {};
+    var h = { "Content-Type": "application/json" }, pref = [];
+    if (o.count) pref.push("count=exact");
+    if (method !== "GET") pref.push(o.minimal ? "return=minimal" : "return=representation");
+    if (o.upsert) pref.push("resolution=merge-duplicates");
+    if (pref.length) h.Prefer = pref.join(",");
+    var r = await req(URL_ + "/rest/v1/" + path, { method: method, headers: h, body: body !== undefined ? JSON.stringify(body) : undefined });
+    var txt = await r.text(), j = null; try { j = txt ? JSON.parse(txt) : null; } catch (e) { }
+    if (!r.ok) throw apiError(r.status, j);
+    var cr = r.headers.get("content-range");
+    return { data: j, count: cr && cr.indexOf("/") > -1 && cr.split("/")[1] !== "*" ? parseInt(cr.split("/")[1], 10) : null };
+  }
+  function get(path, o) { return rest("GET", path, undefined, o).then(function (r) { return r.data || []; }); }
+  function encPath(p) { return String(p).split("/").map(encodeURIComponent).join("/"); }
+
+  /* ---------- Storage ---------- */
+  async function upload(path, blob) {
+    var r = await req(URL_ + "/storage/v1/object/" + BUCKET + "/" + encPath(path), { method: "POST", headers: { "Content-Type": blob.type || "application/octet-stream", "x-upsert": "false", "cache-control": "max-age=31536000" }, body: blob });
+    if (!r.ok) { var j = await r.json().catch(function () { return {}; }); throw new Error(r.status === 403 || r.status === 401 ? ERR_AR["42501"] : (j.message || "فشل رفع الصورة (" + r.status + ")")); }
+  }
+  async function removeFiles(paths) {
+    var r = await req(URL_ + "/storage/v1/object/" + BUCKET, { method: "DELETE", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ prefixes: paths }) });
+    if (!r.ok) throw new Error("فشل حذف ملف الصورة (" + r.status + ")");
+  }
+  function publicUrl(path) { return URL_ + "/storage/v1/object/public/" + BUCKET + "/" + encPath(path); }
+  /* تصغير الصورة قبل الرفع (أخفّ على الهاتف والقاعدة): أقصى 1600px، WebP ثم JPEG احتياطاً، وأقل من 5MB */
+  async function prepareImage(file) {
+    if (!/^image\/(jpeg|png|webp|avif|gif)$/.test(file.type)) throw new Error("نوع الملف غير مدعوم (استعمل JPG أو PNG أو WebP).");
+    var bmp = await createImageBitmap(file), max = 1600, k = Math.min(1, max / Math.max(bmp.width, bmp.height));
+    var c = document.createElement("canvas"); c.width = Math.round(bmp.width * k); c.height = Math.round(bmp.height * k);
+    c.getContext("2d").drawImage(bmp, 0, 0, c.width, c.height);
+    function toBlob(type, q) { return new Promise(function (res) { c.toBlob(res, type, q); }); }
+    var b = await toBlob("image/webp", 0.85), ext = "webp";
+    if (!b || b.type !== "image/webp") { b = await toBlob("image/jpeg", 0.88); ext = "jpg"; }
+    if (!b) throw new Error("تعذّرت معالجة الصورة.");
+    if (b.size > 5 * 1024 * 1024) throw new Error("الصورة كبيرة جداً بعد المعالجة (أكثر من 5 ميغابايت).");
+    return { blob: b, ext: ext };
+  }
+
+  /* ---------- واجهة ---------- */
+  function toast(msg, kind) {
+    var box = document.getElementById("toasts"); if (!box) return;
+    var d = document.createElement("div"); d.className = "toast " + (kind || ""); d.setAttribute("role", "status"); d.textContent = msg; box.appendChild(d);
+    setTimeout(function () { d.remove(); }, kind === "err" ? 6000 : 3000);
+  }
+  function modal(content, opts) {
+    return new Promise(function (resolve) {
+      var ov = document.createElement("div"); ov.className = "ov"; ov.setAttribute("role", "dialog"); ov.setAttribute("aria-modal", "true");
+      var b = document.createElement("div"); b.className = "modal"; mount(b, content); ov.appendChild(b); document.body.appendChild(ov);
+      function close(v) { ov.remove(); resolve(v); }
+      ov.addEventListener("click", function (e) { if (e.target === ov && !(opts && opts.sticky)) close(null); var a = e.target.closest("[data-mclose]"); if (a) close(a.getAttribute("data-mclose")); });
+      b.__close = close; ov.__box = b; var f = b.querySelector("input,select,textarea,button"); if (f) f.focus();
+      if (opts && opts.onOpen) opts.onOpen(b, close);
+    });
+  }
+  function confirmBox(msg, okText, danger) {
+    return modal(html`<p class="mtxt">${msg}</p><div class="row end"><button class="btn" data-mclose="">إلغاء</button><button class="btn ${danger ? "danger" : "pri"}" data-mclose="yes">${okText || "تأكيد"}</button></div>`).then(function (v) { return v === "yes"; });
+  }
+  async function busy(btn, fn) {
+    if (btn) { if (btn.disabled) return; btn.disabled = true; btn.dataset.t = btn.textContent; btn.textContent = "…"; }
+    try { return await fn(); } catch (e) { if (e && e.auth) { window.ADM.onAuthLost && window.ADM.onAuthLost(); } else toast(e.message || "حدث خطأ", "err"); }
+    finally { if (btn) { btn.disabled = false; btn.textContent = btn.dataset.t; } }
+  }
+
+  window.ADM = { cfg: { url: URL_, key: KEY, bucket: BUCKET, ready: !!(URL_ && KEY), mode: DS.mode, whatsapp: ((window.ATHAR_CONFIG || {}).order || {}).whatsappNumber || "" },
+    esc: esc, raw: raw, html: html, mount: mount, money: money, dt: dt, slugify: slugify, STATUS_AR: STATUS_AR, PSTATUS_AR: PSTATUS_AR,
+    loadS: loadS, login: login, logout: logout, refresh: refresh, session: function () { return session; }, get: get, rest: rest,
+    upload: upload, removeFiles: removeFiles, publicUrl: publicUrl, prepareImage: prepareImage, req: req, toast: toast, modal: modal, confirm: confirmBox, busy: busy, views: {}, perms: {},
+    can: function (p) { var A = window.ADM; return A.role === "admin" || (A.role === "staff" && !!A.perms && A.perms[p] === true); } };
+})();
+
+/* لوحة الإدارة — اللوحة الرئيسية + المنتجات والصور */
+(function () {
+  "use strict";
+  var A = window.ADM, html = A.html, raw = A.raw, mount = A.mount, esc = A.esc, V = A.views;
+  function opt(v, label, sel) { return raw('<option value="' + esc(v) + '"' + (sel ? " selected" : "") + ">" + esc(label) + "</option>"); }
+  function badge(kind, text) { return raw('<span class="badge ' + kind + '">' + esc(text) + "</span>"); }
+  A.opt = opt; A.badge = badge;
+  var PKIND = { published: "ok", draft: "warn", archived: "mut" };
+  var SKIND = { pending: "warn", confirmed: "info", preparing: "info", shipped: "info", delivered: "ok", cancelled: "bad", returned: "bad" };
+  A.SKIND = SKIND;
+
+  /* ================= لوحة التحكم ================= */
+  V.dashboard = async function (root) {
+    mount(root, html`<h1>لوحة التحكم</h1><p class="muted">جارٍ التحميل…</p>`);
+    var canO = A.can("orders"), admin = A.can("products"), E = Promise.resolve([]);
+    var jobs = [canO ? A.get("admin_sales_daily?select=day,orders_count,revenue_dzd&order=day.desc&limit=14") : E, canO ? A.get("orders?select=status&limit=1000") : E,
+      canO ? A.get("orders?select=order_number,customer_name,total_amount,status,created_at&order=created_at.desc&limit=5") : E];
+    if (admin) jobs.push(A.get("products?select=id,status&limit=1000"), A.get("inventory?select=product_id,quantity,low_stock_threshold,track_inventory&track_inventory=eq.true"), A.get("delivery_zones?select=fee_dzd&is_active=eq.true"), A.get("product_images?select=product_id&limit=1000"));
+    var r = await Promise.all(jobs), sales = r[0].slice().reverse(), orders = r[1], recent = r[2];
+    var byS = {}; orders.forEach(function (o) { byS[o.status] = (byS[o.status] || 0) + 1; });
+    var rev = sales.reduce(function (s, x) { return s + Number(x.revenue_dzd || 0); }, 0), cnt = sales.reduce(function (s, x) { return s + Number(x.orders_count || 0); }, 0);
+    var max = Math.max.apply(null, sales.map(function (x) { return Number(x.revenue_dzd || 0); }).concat([1]));
+    var chart = sales.length ? html`<div class="bars" role="img" aria-label="مبيعات آخر الأيام">${sales.map(function (x) { return raw('<div class="bar" title="' + esc(x.day + ": " + A.money(x.revenue_dzd)) + '"><i style="height:' + Math.max(3, Math.round(Number(x.revenue_dzd || 0) / max * 100)) + '%"></i><small>' + esc(String(x.day).slice(5)) + "</small></div>"); })}</div>` : html`<p class="muted">لا مبيعات بعد.</p>`;
+    var prod = "", ready = "";
+    if (admin) {
+      var ps = r[3], inv = r[4], zones = r[5], imgs = r[6], pub = ps.filter(function (p) { return p.status === "published"; }).length, dr = ps.filter(function (p) { return p.status === "draft"; }).length;
+      var fees = zones.filter(function (z) { return z.fee_dzd != null; }).length, low = inv.filter(function (i) { return i.quantity <= i.low_stock_threshold; });
+      var withImg = {}; imgs.forEach(function (i) { withImg[i.product_id] = 1; });
+      var noImg = ps.filter(function (p) { return p.status === "published" && !withImg[p.id]; }).length;
+      prod = html`<div class="cards">
+        <a class="card stat" href="#/products"><b>${pub}</b><span>عطر منشور</span></a>
+        <a class="card stat" href="#/products"><b>${dr}</b><span>مسودات</span></a>
+        <a class="card stat" href="#/inventory"><b>${low.length}</b><span>مخزون منخفض/نافد</span></a>
+        <a class="card stat" href="#/delivery"><b>${fees}/${zones.length}</b><span>ولايات بسعر توصيل</span></a></div>`;
+      var chk = function (ok, t, href) { return raw('<li class="' + (ok ? "ok" : "no") + '"><span>' + (ok ? "✔" : "○") + '</span><a href="' + href + '">' + esc(t) + "</a></li>"); };
+      ready = html`<section class="card"><h2>جاهزية المتجر للإطلاق</h2><ul class="check">
+        ${chk(pub > 0, "منتجات منشورة (" + pub + ")", "#/products")}${chk(pub > 0 && noImg === 0, "كل منتج منشور له صورة", "#/products")}
+        ${chk(fees === zones.length && zones.length > 0, "أسعار التوصيل محددة (" + fees + "/" + zones.length + ")", "#/delivery")}
+        ${chk(!!A.cfg.whatsapp, "رقم واتساب المتجر في إعدادات الموقع (config.js)", "#/settings")}</ul>
+        <p class="muted small">تفعيل استقبال الطلبات الحقيقية خطوة منفصلة تتم بعد اكتمال القائمة وموافقتك.</p></section>`;
+      A._low = low;
+      if (low.length) {
+        var names = await A.get("products?select=id,name_ar&id=in.(" + low.slice(0, 8).map(function (l) { return l.product_id; }).join(",") + ")");
+        var nm = {}; names.forEach(function (n) { nm[n.id] = n.name_ar; });
+        prod = html`${prod}<section class="card"><h2>تنبيه المخزون</h2><ul class="plain">${low.slice(0, 8).map(function (l) { return raw("<li><a href=\"#/products/" + esc(l.product_id) + '">' + esc(nm[l.product_id] || "—") + "</a> — " + (l.quantity <= 0 ? '<span class="badge bad">نفد</span>' : '<span class="badge warn">باقي ' + esc(l.quantity) + "</span>") + "</li>"); })}</ul></section>`;
+      }
+    }
+    mount(root, html`<h1>لوحة التحكم</h1>
+      ${canO ? html`<div class="cards">
+        <div class="card stat"><b>${cnt}</b><span>طلبات آخر 14 يوماً</span></div>
+        <div class="card stat"><b>${A.money(rev)}</b><span>مبيعات (بدون الملغى والمرتجع)</span></div>
+        <a class="card stat" href="#/orders"><b>${byS.pending || 0}</b><span>طلبات جديدة</span></a>
+        <a class="card stat" href="#/orders"><b>${(byS.confirmed || 0) + (byS.preparing || 0) + (byS.shipped || 0)}</b><span>طلبات قيد المعالجة</span></a></div>` : ""}
+      ${prod}${ready}
+      ${canO ? html`<section class="card"><h2>المبيعات اليومية</h2>${chart}</section>
+      <section class="card"><h2>آخر الطلبات</h2>${recent.length ? html`<div class="tbl"><table><thead><tr><th>الرقم</th><th>الزبون</th><th>المجموع</th><th>الحالة</th></tr></thead><tbody>${recent.map(function (o) { return html`<tr><td><a href="#/orders">${o.order_number}</a></td><td>${o.customer_name}</td><td>${A.money(o.total_amount)}</td><td>${badge(SKIND[o.status], A.STATUS_AR[o.status])}</td></tr>`; })}</tbody></table></div>` : html`<p class="muted">لا طلبات بعد (استقبال الطلبات الحقيقية غير مفعّل حالياً).</p>`}</section>` : ""}`);
+  };
+
+  /* ================= قائمة المنتجات ================= */
+  V.products = async function (root, param) {
+    if (!A.can("products")) return mount(root, html`<h1>المنتجات</h1><p class="muted">لا تملك صلاحية إدارة المنتجات.</p>`);
+    if (param) return form(root, param);
+    mount(root, html`<h1>العطور</h1><p class="muted">جارٍ التحميل…</p>`);
+    var r = await Promise.all([A.get("products?select=id,slug,name_ar,name_fr,brand,price,status,updated_at&order=updated_at.desc&limit=500"), A.get("product_images?select=product_id,storage_path,is_primary,sort_order&order=sort_order.asc&limit=2000"), A.get("inventory?select=product_id,quantity,track_inventory&limit=1000")]);
+    var img = {}, qty = {}; r[1].forEach(function (i) { if (!img[i.product_id] || i.is_primary) img[i.product_id] = i.storage_path; }); r[2].forEach(function (i) { qty[i.product_id] = i; });
+    var list = r[0], st = { q: "", s: "" };
+    function draw() {
+      var rows = list.filter(function (p) { var t = (p.name_ar + " " + p.name_fr + " " + p.brand + " " + p.slug).toLowerCase(); return (!st.q || t.indexOf(st.q) > -1) && (!st.s || p.status === st.s); });
+      root.querySelector("#plist").innerHTML = rows.length ? rows.map(function (p) {
+        var inv = qty[p.id];
+        return html`<a class="prow" href="#/products/${p.id}"><span class="thumb">${img[p.id] ? raw('<img loading="lazy" alt="" src="' + esc(A.publicUrl(img[p.id])) + '">') : raw("<i>بلا صورة</i>")}</span>
+          <span class="pinfo"><b>${p.name_ar}</b><small>${p.name_fr} · ${p.brand}</small><small>${A.money(p.price)}${inv && inv.track_inventory ? " · المخزون: " + inv.quantity : ""}</small></span>${badge(PKIND[p.status], A.PSTATUS_AR[p.status])}</a>`.__raw;
+      }).join("") : '<p class="muted">لا نتائج.</p>';
+    }
+    mount(root, html`<div class="row between"><h1>العطور</h1><a class="btn pri" href="#/products/new">+ إضافة عطر</a></div>
+      <div class="row gap"><input id="q" type="search" placeholder="بحث بالاسم أو الماركة…" aria-label="بحث"><select id="sf" aria-label="الحالة"><option value="">كل الحالات</option>${["published", "draft", "archived"].map(function (s) { return opt(s, A.PSTATUS_AR[s]); })}</select></div>
+      <div id="plist" class="plist"></div>${list.length ? "" : html`<p class="muted">لا عطور بعد. اضغط «إضافة عطر» لإدخال أول عطر حقيقي.</p>`}`);
+    draw();
+    root.oninput = function (e) { if (e.target.id === "q") { st.q = e.target.value.trim().toLowerCase(); draw(); } };
+    root.onchange = function (e) { if (e.target.id === "sf") { st.s = e.target.value; draw(); } };
+  };
+
+  /* ================= نموذج المنتج + الصور ================= */
+  async function form(root, id) {
+    var isNew = id === "new", P = null, imgs = [], cats = await A.get("categories?select=id,slug,name_ar&order=sort_order.asc"), sel = {}, inv = { quantity: 0, low_stock_threshold: 3, track_inventory: true };
+    if (!isNew) {
+      var rr = await Promise.all([A.get("products?select=*&id=eq." + encodeURIComponent(id)), A.get("product_images?select=*&product_id=eq." + encodeURIComponent(id) + "&order=sort_order.asc"), A.get("product_categories?select=category_id&product_id=eq." + encodeURIComponent(id)), A.get("inventory?select=*&product_id=eq." + encodeURIComponent(id))]);
+      if (!rr[0].length) return mount(root, html`<h1>العطر غير موجود</h1><a class="btn" href="#/products">رجوع</a>`);
+      P = rr[0][0]; imgs = rr[1]; rr[2].forEach(function (c) { sel[c.category_id] = 1; }); if (rr[3][0]) inv = rr[3][0];
+    } else P = { status: "draft", gender: "unisex", authenticity_type: "original", badges: [], notes: {}, currency: "DZD" };
+    var notes = P.notes || {};
+    function lines(k) { return (notes[k] || []).map(function (n) { return n.ar + (n.fr && n.fr !== n.ar ? " | " + n.fr : ""); }).join("\n"); }
+    function f(label, input, hint) { return raw('<label class="fld"><span>' + esc(label) + "</span>" + input.__raw + (hint ? "<small>" + esc(hint) + "</small>" : "") + "</label>"); }
+    function inp(name, v, extra) { return html`<input name="${name}" value="${v == null ? "" : v}" ${raw(extra || "")}>`; }
+    mount(root, html`<div class="row between"><h1>${isNew ? "إضافة عطر" : "تعديل: " + P.name_ar}</h1><a class="btn" href="#/products">← القائمة</a></div>
+    <form id="pf" class="card formgrid" novalidate>
+      ${f("الاسم بالعربية *", inp("name_ar", P.name_ar, "required maxlength=120"))}${f("الاسم بالفرنسية *", inp("name_fr", P.name_fr, "required maxlength=120 dir=ltr"))}
+      ${f("الماركة *", inp("brand", P.brand, "required maxlength=80 dir=ltr"))}${f("الرابط (slug) *", inp("slug", P.slug, "required dir=ltr pattern=[a-z0-9-]+"), "أحرف لاتينية صغيرة وأرقام وشرطات، يُولَّد تلقائياً من الاسم الفرنسي")}
+      ${f("السعر بالدينار *", inp("price", P.price, "type=number inputmode=decimal min=1 step=0.01 required"))}${f("السعر قبل التخفيض (اختياري)", inp("compare_at_price", P.compare_at_price, "type=number inputmode=decimal min=0 step=0.01"), "يجب أن يكون أكبر من السعر الحالي")}
+      ${f("الوصف بالعربية", html`<textarea name="description_ar" rows="4">${P.description_ar || ""}</textarea>`)}${f("الوصف بالفرنسية", html`<textarea name="description_fr" rows="4" dir="ltr">${P.description_fr || ""}</textarea>`)}
+      ${f("الحجم (مل)", inp("size_ml", P.size_ml, "type=number inputmode=numeric min=1"))}
+      ${f("التركيز", html`<select name="concentration">${opt("", "—", !P.concentration)}${["EDP", "EDT", "Parfum"].map(function (c) { return opt(c, c, P.concentration === c); })}</select>`)}
+      ${f("الفئة", html`<select name="gender">${opt("men", "رجالي", P.gender === "men")}${opt("women", "نسائي", P.gender === "women")}${opt("unisex", "للجنسين", P.gender === "unisex")}</select>`)}
+      ${f("العائلة العطرية", html`<select name="family">${opt("", "—", !P.family)}${[["oriental", "شرقي"], ["floral", "زهري"], ["oud", "عود"], ["fresh", "منعش"], ["woody", "خشبي"], ["musky", "مسكي"]].map(function (c) { return opt(c[0], c[1], P.family === c[0]); })}</select>`)}
+      ${f("بلد المنشأ (حرفان)", inp("origin_country", (P.origin_country || "").trim(), "maxlength=2 dir=ltr style=text-transform:uppercase"))}
+      ${f("النوع", html`<select name="authenticity_type">${opt("original", "أصلي", P.authenticity_type === "original")}${opt("inspired", "مستوحى", P.authenticity_type === "inspired")}</select>`)}
+      <label class="fld chk"><input type="checkbox" name="authenticity_verified" ${P.authenticity_verified ? "checked" : ""}> <span>تم التحقق من الأصالة</span></label>
+      ${f("ترتيب الشعبية (رقم، اختياري)", inp("popularity", P.popularity, "type=number inputmode=numeric min=0"))}
+      <fieldset class="full"><legend>التصنيفات</legend><div class="row wrap">${cats.map(function (c) { return raw('<label class="chk"><input type="checkbox" name="cat" value="' + esc(c.id) + '"' + (sel[c.id] ? " checked" : "") + "> " + esc(c.name_ar) + "</label>"); })}</div></fieldset>
+      <fieldset class="full"><legend>الشارات</legend><div class="row wrap">${[["new", "جديد"], ["bestseller", "الأكثر مبيعاً"]].map(function (b) { return raw('<label class="chk"><input type="checkbox" name="badge" value="' + b[0] + '"' + ((P.badges || []).indexOf(b[0]) > -1 ? " checked" : "") + "> " + b[1] + "</label>"); })}</div></fieldset>
+      <fieldset class="full"><legend>النوتات العطرية (سطر لكل نوتة، والفرنسية بعد الخط | اختيارياً)</legend><div class="formgrid inner">
+        ${f("القمة", html`<textarea name="n_top" rows="3">${lines("top")}</textarea>`)}${f("القلب", html`<textarea name="n_heart" rows="3">${lines("heart")}</textarea>`)}${f("القاعدة", html`<textarea name="n_base" rows="3">${lines("base")}</textarea>`)}</div></fieldset>
+      <fieldset class="full"><legend>المخزون</legend><div class="formgrid inner">
+        ${f("الكمية المتوفرة", inp("quantity", inv.quantity, "type=number inputmode=numeric min=0"))}${f("تنبيه عند أقل من أو يساوي", inp("low_stock_threshold", inv.low_stock_threshold, "type=number inputmode=numeric min=0"))}
+        <label class="fld chk"><input type="checkbox" name="track_inventory" ${inv.track_inventory ? "checked" : ""}> <span>تتبّع المخزون (إن أُلغي يُعتبر متوفراً دائماً)</span></label></div></fieldset>
+      ${f("حالة النشر", html`<select name="status">${["draft", "published", "archived"].map(function (s) { return opt(s, A.PSTATUS_AR[s], P.status === s); })}</select>`, "المسودة والمؤرشف لا يراهما الزوار. النشر يتطلب صورة واحدة على الأقل.")}
+      <div class="full row end gap"><button type="submit" class="btn pri" id="save">${isNew ? "حفظ ومتابعة لرفع الصور" : "حفظ التعديلات"}</button></div>
+    </form>
+    ${isNew ? "" : html`<section class="card" id="imgs"></section>
+      <section class="card danger-zone"><h2>منطقة الحذف</h2><p class="muted small">حذف عطر مرتبط بطلبات غير ممكن (يحفظ سجل المبيعات) — أرشفته تخفيه عن المتجر.</p><div class="row gap"><button class="btn" id="arch">أرشفة العطر</button><button class="btn danger" id="del">حذف نهائي</button></div></section>`}`);
+    var F = root.querySelector("#pf");
+    var slugTouched = !isNew;
+    F.elements.slug.addEventListener("input", function () { slugTouched = true; });
+    F.elements.name_fr.addEventListener("input", function () { if (!slugTouched) F.elements.slug.value = A.slugify(F.elements.name_fr.value); });
+    function num(v) { v = String(v).trim(); return v === "" ? null : Number(v); }
+    function parseNotes(t) { return String(t || "").split("\n").map(function (l) { return l.trim(); }).filter(Boolean).map(function (l) { var p = l.split("|"); var ar = p[0].trim(); return { ar: ar, fr: (p[1] || ar).trim() }; }); }
+
+    F.addEventListener("submit", function (e) {
+      e.preventDefault();
+      A.busy(root.querySelector("#save"), async function () {
+        var E = F.elements, body = {
+          name_ar: E.name_ar.value.trim(), name_fr: E.name_fr.value.trim(), brand: E.brand.value.trim(), slug: E.slug.value.trim(),
+          price: num(E.price.value), compare_at_price: num(E.compare_at_price.value), description_ar: E.description_ar.value.trim() || null, description_fr: E.description_fr.value.trim() || null,
+          size_ml: num(E.size_ml.value), concentration: E.concentration.value || null, gender: E.gender.value, family: E.family.value || null,
+          origin_country: E.origin_country.value.trim().toUpperCase() || null, authenticity_type: E.authenticity_type.value, authenticity_verified: E.authenticity_verified.checked,
+          popularity: num(E.popularity.value), status: E.status.value,
+          badges: Array.prototype.map.call(F.querySelectorAll("[name=badge]:checked"), function (c) { return c.value; }),
+          notes: { top: parseNotes(E.n_top.value), heart: parseNotes(E.n_heart.value), base: parseNotes(E.n_base.value) }
+        };
+        if (!body.name_ar || !body.name_fr || !body.brand) throw new Error("الاسم بالعربية والفرنسية والماركة إلزامية.");
+        if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(body.slug)) throw new Error("الرابط (slug) يجب أن يكون أحرفاً لاتينية صغيرة وأرقاماً وشرطات.");
+        if (!(body.price > 0)) throw new Error("السعر يجب أن يكون أكبر من صفر.");
+        if (body.compare_at_price != null && !(body.compare_at_price > body.price)) throw new Error("السعر قبل التخفيض يجب أن يكون أكبر من السعر الحالي (أو اتركه فارغاً).");
+        if (body.origin_country && !/^[A-Z]{2}$/.test(body.origin_country)) throw new Error("بلد المنشأ حرفان لاتينيان مثل FR.");
+        if (body.status === "published" && (isNew || !imgs.length)) { if (isNew) body.status = "draft"; else throw new Error("لا يمكن نشر عطر بلا صورة. ارفع صورة أولاً."); if (isNew) A.toast("حُفظ كمسودة: ارفع صورة ثم انشره.", "info"); }
+        var q = num(E.quantity.value), th = num(E.low_stock_threshold.value);
+        if (q != null && (q < 0 || q % 1)) throw new Error("الكمية رقم صحيح لا يقل عن صفر.");
+        var pid = isNew ? null : P.id, res;
+        if (isNew) { res = await A.rest("POST", "products", body); pid = res.data[0].id; } else await A.rest("PATCH", "products?id=eq." + pid, body);
+        var want = Array.prototype.map.call(F.querySelectorAll("[name=cat]:checked"), function (c) { return c.value; }), cur = Object.keys(sel);
+        var rm = cur.filter(function (c) { return want.indexOf(c) < 0; }), add = want.filter(function (c) { return cur.indexOf(c) < 0; });
+        if (rm.length) await A.rest("DELETE", "product_categories?product_id=eq." + pid + "&category_id=in.(" + rm.join(",") + ")", undefined, { minimal: true });
+        if (add.length) await A.rest("POST", "product_categories", add.map(function (c) { return { product_id: pid, category_id: c }; }), { minimal: true });
+        await A.rest("PATCH", "inventory?product_id=eq." + pid, { quantity: q == null ? 0 : q, low_stock_threshold: th == null ? 3 : th, track_inventory: E.track_inventory.checked }, { minimal: true });
+        A.toast("تم الحفظ ✔", "ok");
+        if (isNew) location.hash = "#/products/" + pid; else { V.products(root, pid); }
+      });
+    });
+    if (isNew) return;
+
+    /* ---- الصور ---- */
+    var box = root.querySelector("#imgs");
+    function drawImgs() {
+      mount(box, html`<h2>صور العطر (${imgs.length})</h2><p class="muted small">الصورة المميّزة (★) تظهر أولاً في المتجر. تُصغَّر الصور تلقائياً قبل الرفع.</p>
+        <div class="igrid">${imgs.map(function (im, i) { return raw('<figure class="im' + (im.is_primary ? " pri" : "") + '"><img alt="" src="' + esc(A.publicUrl(im.storage_path)) + '"><figcaption>' +
+          '<button type="button" class="ib" data-a="star" data-i="' + i + '" title="اجعلها الرئيسية" aria-label="الصورة الرئيسية">' + (im.is_primary ? "★" : "☆") + "</button>" +
+          '<button type="button" class="ib" data-a="left" data-i="' + i + '" ' + (i === 0 ? "disabled" : "") + ' aria-label="تقديم">→</button><button type="button" class="ib" data-a="right" data-i="' + i + '" ' + (i === imgs.length - 1 ? "disabled" : "") + ' aria-label="تأخير">←</button>' +
+          '<button type="button" class="ib bad" data-a="del" data-i="' + i + '" aria-label="حذف الصورة">🗑</button></figcaption></figure>'); })}</div>
+        <label class="btn pri upl">+ رفع صور<input id="file" type="file" accept="image/jpeg,image/png,image/webp" multiple hidden></label><span id="ust" class="muted small"></span>`);
+    }
+    async function reloadImgs() { imgs = await A.get("product_images?select=*&product_id=eq." + P.id + "&order=sort_order.asc"); drawImgs(); }
+    drawImgs();
+    async function reindex(order) { for (var k = 0; k < order.length; k++) if (order[k].sort_order !== k) await A.rest("PATCH", "product_images?id=eq." + order[k].id, { sort_order: k }, { minimal: true }); }
+    box.onclick = function (e) {
+      var b = e.target.closest("[data-a]"); if (!b) return; var i = +b.dataset.i, a = b.dataset.a, im = imgs[i];
+      A.busy(b, async function () {
+        if (a === "star") { await A.rest("PATCH", "product_images?product_id=eq." + P.id, { is_primary: false }, { minimal: true }); await A.rest("PATCH", "product_images?id=eq." + im.id, { is_primary: true }, { minimal: true }); }
+        else if (a === "left" || a === "right") { var j = a === "left" ? i - 1 : i + 1, o = imgs.slice(); var t = o[i]; o[i] = o[j]; o[j] = t; await reindex(o); }
+        else if (a === "del") {
+          if (!(await A.confirm("حذف هذه الصورة نهائياً؟", "حذف", true))) return;
+          if (P.status === "published" && imgs.length === 1) throw new Error("لا يمكن حذف آخر صورة لعطر منشور. أخفِ العطر أولاً (مسودة).");
+          await A.removeFiles([im.storage_path]); await A.rest("DELETE", "product_images?id=eq." + im.id, undefined, { minimal: true });
+          var rest_ = imgs.filter(function (x) { return x.id !== im.id; });
+          if (im.is_primary && rest_.length) await A.rest("PATCH", "product_images?id=eq." + rest_[0].id, { is_primary: true }, { minimal: true });
+        }
+        await reloadImgs();
+      });
+    };
+    box.onchange = async function (e) {
+      if (e.target.id !== "file") return; var files = Array.prototype.slice.call(e.target.files), st = box.querySelector("#ust"); e.target.value = "";
+      await A.busy(null, async function () {
+        for (var k = 0; k < files.length; k++) {
+          st.textContent = "رفع " + (k + 1) + " من " + files.length + "…";
+          var pr = await A.prepareImage(files[k]), path = P.id + "/" + Date.now().toString(36) + "-" + Math.random().toString(36).slice(2, 7) + "." + pr.ext;
+          await A.upload(path, pr.blob);
+          try { await A.rest("POST", "product_images", { product_id: P.id, storage_path: path, sort_order: imgs.length + k, is_primary: imgs.length === 0 && k === 0, alt_ar: P.name_ar, alt_fr: P.name_fr }, { minimal: true }); }
+          catch (er) { try { await A.removeFiles([path]); } catch (x) { } throw er; }
+        }
+        A.toast("تم رفع الصور ✔", "ok"); await reloadImgs();
+      });
+    };
+    root.querySelector("#arch").onclick = function (e) { A.busy(e.target, async function () { if (!(await A.confirm("أرشفة العطر وإخفاؤه عن المتجر؟", "أرشفة"))) return; await A.rest("PATCH", "products?id=eq." + P.id, { status: "archived" }, { minimal: true }); A.toast("تمت الأرشفة", "ok"); V.products(root, P.id); }); };
+    root.querySelector("#del").onclick = function (e) {
+      A.busy(e.target, async function () {
+        if (!(await A.confirm("حذف العطر «" + P.name_ar + "» وكل صوره نهائياً؟ لا يمكن التراجع.", "حذف نهائي", true))) return;
+        var paths = imgs.map(function (x) { return x.storage_path; });
+        await A.rest("DELETE", "products?id=eq." + P.id, undefined, { minimal: true });
+        if (paths.length) { try { await A.removeFiles(paths); } catch (x) { } }
+        A.toast("تم الحذف", "ok"); location.hash = "#/products";
+      });
+    };
+  }
+})();
+
+/* لوحة الإدارة — المخزون، التصنيفات، التوصيل والجغرافيا */
+(function () {
+  "use strict";
+  var A = window.ADM, html = A.html, raw = A.raw, mount = A.mount, esc = A.esc, V = A.views, opt = A.opt, badge = A.badge;
+  function adminOnly(root, t, perm) { if (A.can(perm)) return false; mount(root, html`<h1>${t}</h1><p class="muted">لا تملك صلاحية هذا القسم.</p>`); return true; }
+  function rowVals(tr) { var o = {}; Array.prototype.forEach.call(tr.querySelectorAll("[data-f]"), function (i) { o[i.dataset.f] = i.type === "checkbox" ? i.checked : i.value; }); return o; }
+  function n(v) { v = String(v == null ? "" : v).trim(); return v === "" ? null : Number(v); }
+
+  /* ================= المخزون ================= */
+  V.inventory = async function (root) {
+    if (adminOnly(root, "المخزون", "inventory")) return;
+    mount(root, html`<h1>المخزون</h1><p class="muted">جارٍ التحميل…</p>`);
+    var r = await Promise.all([A.get("products?select=id,name_ar,brand,status&order=name_ar.asc&limit=500"), A.get("inventory?select=*&limit=1000")]);
+    var inv = {}; r[1].forEach(function (i) { inv[i.product_id] = i; });
+    var onlyLow = false;
+    function draw() {
+      var rows = r[0].filter(function (p) { var i = inv[p.id]; return !onlyLow || (i && i.track_inventory && i.quantity <= i.low_stock_threshold); });
+      root.querySelector("#ilist").innerHTML = rows.length ? rows.map(function (p) {
+        var i = inv[p.id] || { quantity: 0, low_stock_threshold: 3, track_inventory: true }, low = i.track_inventory && i.quantity <= i.low_stock_threshold;
+        return html`<div class="irow" data-id="${p.id}"><div class="iname"><a href="#/products/${p.id}"><b>${p.name_ar}</b></a><small>${p.brand} ${badge(low ? (i.quantity <= 0 ? "bad" : "warn") : "ok", i.track_inventory ? (i.quantity <= 0 ? "نفد" : low ? "منخفض" : "متوفر") : "غير متتبَّع")}</small></div>
+          <div class="qty"><button class="ib" data-a="dec" aria-label="إنقاص">−</button><input data-f="quantity" type="number" inputmode="numeric" min="0" value="${i.quantity}" aria-label="الكمية"><button class="ib" data-a="inc" aria-label="زيادة">+</button></div>
+          <label class="chk small"><input data-f="track_inventory" type="checkbox" ${i.track_inventory ? "checked" : ""}> تتبّع</label><button class="btn pri sm" data-a="save">حفظ</button></div>`.__raw;
+      }).join("") : '<p class="muted">لا عطور.</p>';
+    }
+    mount(root, html`<h1>المخزون</h1><label class="chk"><input type="checkbox" id="low"> عرض المنخفض والنافد فقط</label><div id="ilist" class="card"></div>`);
+    draw();
+    root.onchange = function (e) { if (e.target.id === "low") { onlyLow = e.target.checked; draw(); } };
+    root.onclick = function (e) {
+      var b = e.target.closest("[data-a]"); if (!b) return; var tr = b.closest(".irow"), q = tr.querySelector("[data-f=quantity]");
+      if (b.dataset.a === "dec") q.value = Math.max(0, (+q.value || 0) - 1); else if (b.dataset.a === "inc") q.value = (+q.value || 0) + 1;
+      else if (b.dataset.a === "save") A.busy(b, async function () {
+        var v = rowVals(tr), qty = n(v.quantity); if (qty == null || qty < 0 || qty % 1) throw new Error("الكمية رقم صحيح لا يقل عن صفر.");
+        var res = await A.rest("PATCH", "inventory?product_id=eq." + tr.dataset.id, { quantity: qty, track_inventory: !!v.track_inventory });
+        inv[tr.dataset.id] = res.data[0]; A.toast("تم حفظ المخزون ✔", "ok"); draw();
+      });
+    };
+  };
+
+  /* ================= التصنيفات ================= */
+  V.categories = async function (root) {
+    if (adminOnly(root, "التصنيفات", "categories")) return;
+    var list = await A.get("categories?select=*&order=sort_order.asc");
+    function row(c) {
+      return html`<div class="crow" data-id="${c ? c.id : ""}"><input data-f="name_ar" placeholder="الاسم بالعربية" value="${c ? c.name_ar : ""}" aria-label="الاسم بالعربية"><input data-f="name_fr" dir="ltr" placeholder="Nom en français" value="${c ? c.name_fr : ""}" aria-label="الاسم بالفرنسية">
+        <input data-f="slug" dir="ltr" placeholder="slug" value="${c ? c.slug : ""}" ${c ? "readonly" : ""} aria-label="الرابط"><input data-f="sort_order" type="number" inputmode="numeric" value="${c ? c.sort_order : list.length + 1}" aria-label="الترتيب" class="s">
+        <label class="chk small"><input data-f="is_active" type="checkbox" ${!c || c.is_active ? "checked" : ""}> ظاهر</label>
+        <button class="btn pri sm" data-a="save">${c ? "حفظ" : "إضافة"}</button>${c ? raw('<button class="btn danger sm" data-a="del">حذف</button>') : ""}</div>`;
+    }
+    mount(root, html`<h1>التصنيفات</h1><p class="muted small">التصنيفات الثلاثة (شرقية، فاخرة، اقتصادية) مرتبطة بفلاتر المتجر؛ لا تغيّر رابطها (slug). أي تصنيف جديد يُدار هنا لكنه لن يظهر كفلتر في المتجر قبل ربطه برمجياً.</p>
+      <div class="card">${list.map(row)}</div><h2>إضافة تصنيف</h2><div class="card">${row(null)}</div>`);
+    root.onclick = function (e) {
+      var b = e.target.closest("[data-a]"); if (!b) return; var tr = b.closest(".crow"), id = tr.dataset.id;
+      A.busy(b, async function () {
+        if (b.dataset.a === "del") { if (!(await A.confirm("حذف التصنيف؟ سيُفصل عن العطور المرتبطة به.", "حذف", true))) return; await A.rest("DELETE", "categories?id=eq." + id, undefined, { minimal: true }); A.toast("تم الحذف", "ok"); return V.categories(root); }
+        var v = rowVals(tr); if (!v.name_ar.trim() || !v.name_fr.trim()) throw new Error("الاسمان بالعربية والفرنسية إلزاميان.");
+        if (!id) { if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(v.slug)) throw new Error("slug: أحرف لاتينية صغيرة وأرقام وشرطات."); await A.rest("POST", "categories", { slug: v.slug, name_ar: v.name_ar.trim(), name_fr: v.name_fr.trim(), sort_order: n(v.sort_order) || 0, is_active: !!v.is_active }, { minimal: true }); }
+        else await A.rest("PATCH", "categories?id=eq." + id, { name_ar: v.name_ar.trim(), name_fr: v.name_fr.trim(), sort_order: n(v.sort_order) || 0, is_active: !!v.is_active }, { minimal: true });
+        A.toast("تم الحفظ ✔", "ok"); V.categories(root);
+      });
+    };
+  };
+
+  /* ================= التوصيل والجغرافيا ================= */
+  V.delivery = async function (root, tab) {
+    if (adminOnly(root, "التوصيل", "delivery")) return;
+    tab = tab === "geo" ? "geo" : "fees";
+    var head = html`<h1>التوصيل والمناطق</h1><div class="tabs"><a class="${tab === "fees" ? "on" : ""}" href="#/delivery">أسعار التوصيل</a><a class="${tab === "geo" ? "on" : ""}" href="#/delivery/geo">الدوائر والبلديات</a></div>`;
+    mount(root, html`${head}<p class="muted">جارٍ التحميل…</p>`);
+    if (tab === "fees") return fees(root, head);
+    return geo(root, head);
+  };
+
+  async function fees(root, head) {
+    var r = await Promise.all([A.get("wilayas?select=code,name_ar,name_fr,is_active&order=code.asc"), A.get("delivery_zones?select=*")]);
+    var z = {}; r[1].forEach(function (x) { z[x.wilaya_code] = x; });
+    var set = r[1].filter(function (x) { return x.fee_dzd != null; }).length;
+    mount(root, html`${head}<div class="card"><p><b>${set}</b> من <b>${r[0].length}</b> ولاية لها سعر توصيل. الولاية بلا سعر يُسجَّل طلبها بعبارة «التوصيل قيد التحديد».</p>
+      <div class="row gap wrap"><input id="bulk" type="number" inputmode="decimal" min="0" placeholder="سعر موحّد (د.ج)" aria-label="سعر موحد"><button class="btn" id="bulkb">تطبيق على الولايات التي بلا سعر</button></div></div>
+      <div class="card"><div class="frow fhead"><span>الولاية</span><span>السعر د.ج</span><span>من (يوم)</span><span>إلى (يوم)</span><span>متاحة</span><span></span></div>
+      ${r[0].map(function (w) { var d = z[w.code] || {}; return html`<div class="frow" data-w="${w.code}"><span class="wn"><b>${w.code}</b> ${w.name_ar}<small dir="ltr">${w.name_fr}</small></span>
+        <input data-f="fee_dzd" type="number" inputmode="decimal" min="0" step="0.01" value="${d.fee_dzd == null ? "" : d.fee_dzd}" placeholder="غير محدد" aria-label="سعر ${w.name_ar}">
+        <input data-f="min_days" type="number" inputmode="numeric" min="0" value="${d.min_days == null ? "" : d.min_days}" aria-label="أقل مدة"><input data-f="max_days" type="number" inputmode="numeric" min="0" value="${d.max_days == null ? "" : d.max_days}" aria-label="أكثر مدة">
+        <label class="chk small"><input data-f="active" type="checkbox" ${w.is_active && d.is_active !== false ? "checked" : ""}></label><button class="btn pri sm" data-a="save">حفظ</button></div>`; })}</div>`);
+    async function saveRow(tr) {
+      var v = rowVals(tr), fee = n(v.fee_dzd), mn = n(v.min_days), mx = n(v.max_days);
+      if (fee != null && fee < 0) throw new Error("سعر التوصيل لا يكون سالباً."); if (mx != null && mx < (mn || 0)) throw new Error("«إلى» يجب ألا تقل عن «من».");
+      var code = tr.dataset.w, body = { fee_dzd: fee, min_days: mn, max_days: mx, is_active: !!v.active };
+      if (z[code]) await A.rest("PATCH", "delivery_zones?wilaya_code=eq." + code, body, { minimal: true }); else { body.wilaya_code = code; await A.rest("POST", "delivery_zones", body, { minimal: true }); }
+      await A.rest("PATCH", "wilayas?code=eq." + code, { is_active: !!v.active }, { minimal: true });
+    }
+    root.onclick = function (e) {
+      var b = e.target.closest("button"); if (!b) return;
+      if (b.id === "bulkb") A.busy(b, async function () {
+        var v = n(root.querySelector("#bulk").value); if (v == null || v < 0) throw new Error("اكتب سعراً صحيحاً.");
+        if (!(await A.confirm("تعيين " + A.money(v) + " لكل ولاية بلا سعر (" + (r[0].length - set) + " ولاية)؟ يمكنك تعديل كل ولاية بعدها.", "تطبيق"))) return;
+        await A.rest("PATCH", "delivery_zones?fee_dzd=is.null", { fee_dzd: v }, { minimal: true }); A.toast("تم التطبيق ✔", "ok"); V.delivery(root, "fees");
+      });
+      else if (b.dataset.a === "save") A.busy(b, async function () { await saveRow(b.closest(".frow")); A.toast("تم الحفظ ✔", "ok"); });
+    };
+  }
+
+  async function geo(root, head) {
+    var wil = await A.get("wilayas?select=code,name_ar,name_fr,is_active&order=code.asc"), cur = (sessionStorage.getItem("adm_geo") || "12");
+    async function draw(code) {
+      try { sessionStorage.setItem("adm_geo", code); } catch (e) { }
+      var w = wil.filter(function (x) { return x.code === code; })[0] || wil[0];
+      var r = await Promise.all([A.get("districts?select=*&wilaya_code=eq." + w.code + "&order=sort_order.asc,code.asc"), A.get("communes?select=*&wilaya_code=eq." + w.code + "&order=sort_order.asc,code.asc")]);
+      var ds = r[0], cs = r[1];
+      mount(root, html`${head}<div class="card"><label class="fld"><span>اختر الولاية</span><select id="wsel">${wil.map(function (x) { return opt(x.code, x.code + " — " + x.name_ar, x.code === w.code); })}</select></label>
+        <div class="crow" data-t="w" data-id="${w.code}"><input data-f="name_ar" value="${w.name_ar}" aria-label="اسم الولاية بالعربية"><input data-f="name_fr" dir="ltr" value="${w.name_fr}" aria-label="اسم الولاية بالفرنسية"><button class="btn pri sm" data-a="save">حفظ اسم الولاية</button></div>
+        ${cs.length ? "" : html`<p class="muted small">هذه الولاية بلا بلديات في القائمة: الزبون يكتب اسم بلديته نصاً حراً. بعد إضافة أول بلدية سيصبح اختيار البلدية من القائمة إلزامياً (كما في تبسة) فأضف كل بلدياتها.</p>`}</div>
+        ${ds.map(function (d) {
+          var mine = cs.filter(function (c) { return c.district_id === d.id; });
+          return html`<section class="card"><div class="crow" data-t="d" data-id="${d.id}"><input data-f="name_ar" value="${d.name_ar}" aria-label="اسم الدائرة"><input data-f="name_fr" dir="ltr" value="${d.name_fr}" aria-label="Nom de la daïra"><span class="code" dir="ltr">${d.code}</span><input data-f="sort_order" type="number" class="s" value="${d.sort_order}" aria-label="الترتيب"><label class="chk small"><input data-f="is_active" type="checkbox" ${d.is_active ? "checked" : ""}> ظاهرة</label><button class="btn pri sm" data-a="save">حفظ</button></div>
+            ${mine.map(function (c) { return html`<div class="crow sub" data-t="c" data-id="${c.id}"><input data-f="name_ar" value="${c.name_ar}" aria-label="اسم البلدية"><input data-f="name_fr" dir="ltr" value="${c.name_fr}" aria-label="Nom de la commune"><span class="code" dir="ltr">${c.code}</span><input data-f="sort_order" type="number" class="s" value="${c.sort_order}" aria-label="الترتيب"><label class="chk small"><input data-f="is_active" type="checkbox" ${c.is_active ? "checked" : ""}> ظاهرة</label><button class="btn pri sm" data-a="save">حفظ</button></div>`; })}
+            <div class="crow sub add" data-t="nc" data-d="${d.id}"><input data-f="name_ar" placeholder="+ بلدية جديدة (عربي)" aria-label="بلدية جديدة"><input data-f="name_fr" dir="ltr" placeholder="Commune (fr)"><input data-f="code" dir="ltr" class="s" placeholder="${d.code}.${mine.length + 1}" aria-label="رمز البلدية"><button class="btn sm" data-a="save">إضافة</button></div></section>`;
+        })}
+        <section class="card"><h2>دائرة جديدة</h2><div class="crow add" data-t="nd"><input data-f="name_ar" placeholder="اسم الدائرة (عربي)"><input data-f="name_fr" dir="ltr" placeholder="Nom (fr)"><input data-f="code" dir="ltr" class="s" placeholder="رمز" value="${ds.length + 1}" aria-label="رمز الدائرة"><button class="btn sm" data-a="save">إضافة</button></div></section>`);
+      root.onchange = function (e) { if (e.target.id === "wsel") draw(e.target.value); };
+      root.onclick = function (e) {
+        var b = e.target.closest("[data-a=save]"); if (!b) return; var tr = b.closest("[data-t]"), t = tr.dataset.t, v = rowVals(tr);
+        A.busy(b, async function () {
+          if (!String(v.name_ar || "").trim() || !String(v.name_fr || "").trim()) throw new Error("الاسمان بالعربية والفرنسية إلزاميان.");
+          var base = { name_ar: v.name_ar.trim(), name_fr: v.name_fr.trim() };
+          if (t === "w") await A.rest("PATCH", "wilayas?code=eq." + tr.dataset.id, base, { minimal: true });
+          else if (t === "d" || t === "c") await A.rest("PATCH", (t === "d" ? "districts" : "communes") + "?id=eq." + tr.dataset.id, Object.assign(base, { sort_order: n(v.sort_order) || 0, is_active: !!v.is_active }), { minimal: true });
+          else if (t === "nd") { if (!String(v.code).trim()) throw new Error("اكتب رمز الدائرة."); await A.rest("POST", "districts", Object.assign(base, { wilaya_code: w.code, code: String(v.code).trim(), sort_order: ds.length + 1 }), { minimal: true }); }
+          else if (t === "nc") { if (!String(v.code).trim()) throw new Error("اكتب رمز البلدية."); await A.rest("POST", "communes", Object.assign(base, { wilaya_code: w.code, district_id: tr.dataset.d, code: String(v.code).trim(), sort_order: cs.length + 1 }), { minimal: true }); }
+          A.toast("تم الحفظ ✔", "ok"); if (t === "w") { wil.forEach(function (x) { if (x.code === w.code) { x.name_ar = base.name_ar; x.name_fr = base.name_fr; } }); } draw(w.code);
+        });
+      };
+    }
+    draw(cur);
+  }
+})();
+
+/* لوحة الإدارة — الطلبات والإعدادات */
+(function () {
+  "use strict";
+  var A = window.ADM, html = A.html, raw = A.raw, mount = A.mount, V = A.views, opt = A.opt, badge = A.badge;
+  var ST = ["pending", "confirmed", "preparing", "shipped", "delivered", "cancelled", "returned"];
+
+  /* ================= الطلبات ================= */
+  V.orders = async function (root) {
+    if (!A.can("orders")) return mount(root, html`<h1>الطلبات</h1><p class="muted">لا تملك صلاحية إدارة الطلبات.</p>`);
+    var f = { status: "", q: "" };
+    mount(root, html`<h1>الطلبات</h1><div class="note">استقبال الطلبات الحقيقية من المتجر <b>غير مفعّل حالياً</b>. هذا القسم جاهز: ستظهر الطلبات هنا وتتحكم في حالتها عند التفعيل.</div>
+      <div class="row gap wrap"><select id="fs" aria-label="الحالة"><option value="">كل الحالات</option>${ST.map(function (s) { return opt(s, A.STATUS_AR[s], false); })}</select>
+      <input id="fq" type="search" placeholder="بحث: رقم الطلب أو الهاتف أو الاسم" aria-label="بحث"></div><div id="ol" class="card"><p class="muted">جارٍ التحميل…</p></div>`);
+    async function load() {
+      var p = "orders?select=id,order_number,customer_name,customer_phone,wilaya_code,commune_name,status,total_amount,delivery_fee,created_at&order=created_at.desc&limit=100";
+      if (f.status) p += "&status=eq." + f.status;
+      if (f.q) { var q = f.q.replace(/[^\p{L}\p{N} \-]/gu, "").trim(); if (q) p += "&or=(order_number.ilike.*" + encodeURIComponent(q) + "*,customer_phone.ilike.*" + encodeURIComponent(q) + "*,customer_name.ilike.*" + encodeURIComponent(q) + "*)"; }
+      var rows = await A.get(p), box = root.querySelector("#ol");
+      mount(box, rows.length ? html`<div class="tbl"><table><thead><tr><th>الرقم</th><th>الزبون</th><th>الولاية</th><th>المجموع</th><th>الحالة</th><th>التاريخ</th></tr></thead><tbody>${rows.map(function (o) {
+        return html`<tr class="clk" data-id="${o.id}"><td><b>${o.order_number}</b></td><td>${o.customer_name}<small dir="ltr">${o.customer_phone}</small></td><td>${o.wilaya_code} · ${o.commune_name}</td><td>${A.money(o.total_amount)}${o.delivery_fee == null ? raw('<small>توصيل قيد التحديد</small>') : ""}</td><td>${badge(A.SKIND[o.status], A.STATUS_AR[o.status])}</td><td>${A.dt(o.created_at)}</td></tr>`; })}</tbody></table></div>` : html`<p class="muted">لا توجد طلبات.</p>`);
+    }
+    await load().catch(function (e) { if (e.auth) A.onAuthLost(); else A.toast(e.message, "err"); });
+    var t; root.querySelector("#fs").onchange = function (e) { f.status = e.target.value; load(); };
+    root.querySelector("#fq").oninput = function (e) { clearTimeout(t); t = setTimeout(function () { f.q = e.target.value; load(); }, 350); };
+    root.querySelector("#ol").onclick = function (e) { var tr = e.target.closest("tr[data-id]"); if (tr) detail(tr.dataset.id, load); };
+  };
+
+  async function detail(id, reload) {
+    var r = await Promise.all([A.get("orders?select=*&id=eq." + id), A.get("order_items?select=*&order_id=eq." + id)]), o = r[0][0], items = r[1];
+    if (!o) return A.toast("الطلب غير موجود", "err");
+    var final = o.status === "cancelled";
+    A.modal(html`<h2>طلب ${o.order_number}</h2>
+      <div class="kv"><span>الزبون</span><b>${o.customer_name}</b><span>الهاتف</span><b dir="ltr"><a href="tel:${o.customer_phone}">${o.customer_phone}</a></b>
+      <span>العنوان</span><b>${o.wilaya_code} — ${o.commune_name} — ${o.address}</b>${o.notes ? html`<span>ملاحظة الزبون</span><b>${o.notes}</b>` : ""}<span>التاريخ</span><b>${A.dt(o.created_at)}</b></div>
+      <div class="tbl"><table><thead><tr><th>العطر</th><th>السعر</th><th>الكمية</th><th>الإجمالي</th></tr></thead><tbody>${items.map(function (i) { return html`<tr><td>${i.product_name_ar}<small>${i.brand || ""} ${i.size_ml ? i.size_ml + "ml" : ""}</small></td><td>${A.money(i.unit_price)}</td><td>${i.quantity}</td><td>${A.money(i.line_total)}</td></tr>`; })}</tbody></table></div>
+      <p>المجموع الفرعي: <b>${A.money(o.subtotal)}</b> · التوصيل: <b>${o.delivery_fee == null ? "قيد التحديد" : A.money(o.delivery_fee)}</b> · الإجمالي: <b>${A.money(o.total_amount)}</b></p>
+      <label class="fld"><span>الحالة ${final ? "(الإلغاء نهائي)" : ""}</span><select id="ost" ${final ? "disabled" : ""}>${ST.map(function (s) { return opt(s, A.STATUS_AR[s], s === o.status); })}</select></label>
+      <label class="fld"><span>ملاحظات داخلية (لا يراها الزبون)</span><textarea id="onote" rows="3">${o.admin_notes || ""}</textarea></label>
+      <p class="muted small">عند إلغاء الطلب تُعاد كميّاته للمخزون تلقائياً، والإلغاء لا رجعة فيه.</p>
+      <div class="row end"><button class="btn" data-mclose="">إغلاق</button><button class="btn pri" id="osave">حفظ</button></div>`, {
+      onOpen: function (b, close) {
+        b.querySelector("#osave").onclick = function (e) {
+          A.busy(e.target, async function () {
+            var st = b.querySelector("#ost").value, body = { admin_notes: b.querySelector("#onote").value.trim() || null };
+            if (st !== o.status) { if (st === "cancelled" && !(await A.confirm("إلغاء الطلب نهائي ويعيد المخزون. متأكد؟", "إلغاء الطلب", true))) return; body.status = st; }
+            await A.rest("PATCH", "orders?id=eq." + id, body, { minimal: true }); A.toast("تم الحفظ ✔", "ok"); close("ok"); reload();
+          });
+        };
+      }
+    });
+  }
+
+  /* ================= الإعدادات ================= */
+  var KEYS = [["brand_name_ar", "اسم المتجر بالعربية", "text"], ["brand_name_latin", "اسم المتجر باللاتينية", "text"], ["max_qty_per_item", "أقصى كمية للعطر الواحد في الطلب", "number"]];
+  V.settings = async function (root) {
+    var rows = await A.get("store_settings?select=*"), m = {}; rows.forEach(function (r) { m[r.key] = r.value; });
+    var admin = A.can("settings"), s = A.session();
+    mount(root, html`<h1>الإعدادات</h1>
+      <section class="card"><h2>إعدادات المتجر</h2>${admin ? "" : html`<p class="muted">لا تملك صلاحية تعديل الإعدادات.</p>`}
+        ${KEYS.map(function (k) { return html`<label class="fld"><span>${k[1]}</span><input data-k="${k[0]}" type="${k[2]}" ${k[2] === "number" ? raw('min="1" max="100" inputmode="numeric"') : ""} value="${m[k[0]] == null ? "" : m[k[0]]}" ${admin ? "" : "disabled"}></label>`; })}
+        <p class="muted small">العملة: ${m.currency || "DZD"} · اللغات: عربية وفرنسية (ثابتة).</p>${admin ? raw('<button class="btn pri" id="sset">حفظ الإعدادات</button>') : ""}</section>
+      <section class="card"><h2>حالة الطلبات</h2><p>استقبال الطلبات الحقيقية: <b>غير مفعّل</b>. يتم التفعيل في مرحلة لاحقة بموافقتك فقط.</p></section>
+      <section class="card"><h2>حسابي</h2><p>البريد: <b dir="ltr">${(s && s.user && s.user.email) || ""}</b> · الدور: <b>${A.role === "admin" ? "مدير" : "موظف"}</b></p>
+        <label class="fld"><span>كلمة مرور جديدة (8 أحرف على الأقل)</span><input id="np" type="password" autocomplete="new-password" minlength="8"></label><button class="btn" id="spw">تغيير كلمة المرور</button></section>`);
+    var sb = root.querySelector("#sset");
+    if (sb) sb.onclick = function () {
+      A.busy(sb, async function () {
+        var inputs = root.querySelectorAll("[data-k]"), body = [];
+        Array.prototype.forEach.call(inputs, function (i) {
+          var v = i.value.trim(); if (!v) throw new Error("لا تترك حقلاً فارغاً.");
+          if (i.type === "number") { v = Number(v); if (!(v >= 1 && v <= 100) || v % 1) throw new Error("الكمية القصوى بين 1 و100."); }
+          body.push({ key: i.dataset.k, value: v, is_public: true });
+        });
+        await A.rest("POST", "store_settings?on_conflict=key", body, { minimal: true, upsert: true }); A.toast("تم الحفظ ✔", "ok");
+      });
+    };
+    var pb = root.querySelector("#spw");
+    pb.onclick = function () {
+      A.busy(pb, async function () {
+        var p = root.querySelector("#np").value; if (p.length < 8) throw new Error("كلمة المرور 8 أحرف على الأقل.");
+        var r = await A.req(A.cfg.url + "/auth/v1/user", { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ password: p }) });
+        if (!r.ok) throw new Error("تعذّر تغيير كلمة المرور."); root.querySelector("#np").value = ""; A.toast("تم تغيير كلمة المرور ✔", "ok");
+      });
+    };
+  };
+})();
+
+/* لوحة الإدارة — المستخدمون والأدوار والصلاحيات (للمدير فقط) */
+(function () {
+  "use strict";
+  var A = window.ADM, html = A.html, raw = A.raw, mount = A.mount, V = A.views, opt = A.opt, badge = A.badge;
+  var PERMS = [["products", "العطور والصور والنشر"], ["inventory", "المخزون"], ["categories", "التصنيفات"], ["delivery", "التوصيل والمناطق"], ["orders", "الطلبات"], ["settings", "إعدادات المتجر"]];
+  var ALL = PERMS.map(function (p) { return p[0]; });
+  var PRESETS = [
+    ["manager", "مشرف المتجر (كل شيء عدا المستخدمين)", ALL],
+    ["orders", "موظف طلبات", ["orders"]],
+    ["stock", "موظف مخزون", ["inventory"]],
+    ["editor", "محرر عطور (عطور + تصنيفات + مخزون)", ["products", "categories", "inventory"]],
+    ["custom", "مخصص (أحدّد بنفسي)", null]
+  ];
+  var PL = {}; PERMS.forEach(function (p) { PL[p[0]] = p[1]; });
+  function roleLabel(u) {
+    if (!u.role) return "بلا صلاحية"; if (u.role === "admin") return "مدير";
+    var ks = ALL.filter(function (k) { return u.permissions && u.permissions[k] === true; });
+    for (var i = 0; i < PRESETS.length - 1; i++) if (PRESETS[i][2].length === ks.length && PRESETS[i][2].every(function (k) { return ks.indexOf(k) > -1; })) return PRESETS[i][1].split(" (")[0];
+    return ks.length ? "موظف مخصص" : "موظف بلا صلاحيات";
+  }
+  function ref() { try { return new URL(A.cfg.url).hostname.split(".")[0]; } catch (e) { return ""; } }
+
+  V.users = async function (root) {
+    if (A.role !== "admin") return mount(root, html`<h1>المستخدمون والصلاحيات</h1><p class="muted">هذا القسم للمدير فقط.</p>`);
+    mount(root, html`<h1>المستخدمون والصلاحيات</h1><p class="muted">جارٍ التحميل…</p>`);
+    var users = (await A.rest("POST", "rpc/admin_list_users", {})).data || [], me = (A.session() && A.session().user && A.session().user.id) || "";
+    mount(root, html`<h1>المستخدمون والصلاحيات</h1>
+      <div class="note"><b>إضافة موظف:</b> من هنا تنشئ حسابه وتختار كلمة مروره وصلاحياته مباشرة، دون الدخول إلى Supabase. أعطِ الموظف بريده وكلمة المرور، ويمكنه تغييرها بنفسه من «حسابي».
+        <div class="row gap wrap"><button class="btn pri sm" id="addu">＋ إضافة مستخدم</button><button class="btn sm" id="rf">تحديث القائمة</button></div></div>
+      <div class="card">${users.length ? users.map(function (u) {
+        var st = !u.role ? badge("mut", "بلا صلاحية") : u.is_active ? badge("ok", "مفعّل") : badge("bad", "معطّل");
+        var ps = u.role === "admin" ? "كل الصلاحيات" : ALL.filter(function (k) { return u.permissions && u.permissions[k] === true; }).map(function (k) { return PL[k]; }).join("، ") || "—";
+        return html`<div class="urow" data-id="${u.id}"><div><b dir="ltr">${u.email || "(بلا بريد)"}</b>${u.id === me ? raw(' <small>(حسابك)</small>') : ""}<small>${u.full_name || ""} · آخر دخول: ${u.last_sign_in_at ? A.dt(u.last_sign_in_at) : "—"}</small><small>${ps}</small></div>
+          <div class="ustat">${badge(u.role === "admin" ? "info" : "mut", roleLabel(u))} ${st}</div>${u.id === me ? "" : raw('<div class="row gap wrap"><button class="btn pri sm" data-a="edit">تعديل الدور</button><button class="btn sm" data-a="pw">كلمة المرور</button><button class="btn sm danger" data-a="del">حذف</button></div>')}</div>`;
+      }) : html`<p class="muted">لا مستخدمين.</p>`}</div>
+      <section class="card"><h2>الأدوار المتاحة</h2><ul class="plain"><li><b>مدير:</b> كل الصلاحيات + إدارة المستخدمين.</li>${PRESETS.slice(0, 4).map(function (p) { return html`<li><b>${p[1].split(" (")[0]}:</b> ${p[2].map(function (k) { return PL[k]; }).join("، ")}</li>`; })}<li><b>مخصص:</b> تختار أي مجموعة من الصلاحيات الست.</li></ul>
+        <p class="muted small">الصلاحيات مطبّقة في قاعدة البيانات نفسها، فلا يستطيع الموظف تجاوزها حتى لو عبث بالواجهة. لا يمكنك تعديل حسابك ولا تعطيل آخر مدير.</p></section>`);
+    root.querySelector("#rf").onclick = function () { V.users(root); };
+    root.querySelector("#addu").onclick = function () { add(function () { V.users(root); }); };
+    root.onclick = function (e) {
+      var b = e.target.closest("[data-a]"); if (!b) return;
+      var u = users.filter(function (x) { return x.id === b.closest(".urow").dataset.id; })[0], done = function () { V.users(root); };
+      if (b.dataset.a === "edit") edit(u, done); else if (b.dataset.a === "pw") setPw(u); else if (b.dataset.a === "del") del(u, done);
+    };
+  };
+
+  /* استدعاء دالة الخادم (المفتاح السري عند الخادم فقط) */
+  async function fn(body) {
+    var r = await A.req(A.cfg.url + "/functions/v1/admin-users", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+    var j = null; try { j = await r.json(); } catch (e) { }
+    if (!r.ok || !j || j.ok !== true) throw new Error((j && j.error) || "تعذّر تنفيذ العملية، حاول مرة أخرى.");
+    return j;
+  }
+  function genPw() { var c = "abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ23456789", a = new Uint32Array(12), o = ""; crypto.getRandomValues(a); for (var i = 0; i < 12; i++) o += c[a[i] % c.length]; return o; }
+  function pwField(id) { return html`<label class="fld"><span>كلمة المرور (8 أحرف فأكثر)</span><input id="${id}" type="text" dir="ltr" autocomplete="off" maxlength="72"></label><div class="row gap wrap"><button class="btn sm" type="button" data-gen="${id}">توليد كلمة قوية</button></div>`; }
+
+  function add(done) {
+    A.modal(html`<h2>إضافة مستخدم</h2>
+      <label class="fld"><span>البريد الإلكتروني</span><input id="ne" type="email" dir="ltr" autocomplete="off" maxlength="120"></label>
+      <label class="fld"><span>الاسم (للعرض)</span><input id="nn" maxlength="60"></label>
+      ${pwField("np")}
+      <label class="fld"><span>الدور</span><select id="nr">${opt("staff", "موظف (بصلاحيات أحدّدها)", true)}${opt("admin", "مدير (كل الصلاحيات + المستخدمون)", false)}</select></label>
+      <div id="sbox"><label class="fld"><span>قالب جاهز</span><select id="up">${PRESETS.map(function (p) { return opt(p[0], p[1], p[0] === "orders"); })}</select></label>
+        <fieldset><legend>الصلاحيات</legend>${PERMS.map(function (p) { return html`<label class="chk"><input type="checkbox" data-p="${p[0]}" ${p[0] === "orders" ? "checked" : ""}> ${p[1]}</label>`; })}</fieldset></div>
+      <p class="muted small">سجّل كلمة المرور وأعطها للموظف الآن؛ لن تظهر لك لاحقاً.</p>
+      <div class="row end"><button class="btn" data-mclose="">إلغاء</button><button class="btn pri" id="nsave">إنشاء الحساب</button></div>`, {
+      onOpen: function (b, close) {
+        var sbox = b.querySelector("#sbox"), role = b.querySelector("#nr");
+        function vis() { sbox.style.display = role.value === "staff" ? "" : "none"; } role.onchange = vis; vis();
+        b.querySelector("[data-gen]").onclick = function () { b.querySelector("#np").value = genPw(); };
+        b.querySelector("#up").onchange = function (e) { var p = PRESETS.filter(function (x) { return x[0] === e.target.value; })[0]; if (p && p[2]) Array.prototype.forEach.call(b.querySelectorAll("[data-p]"), function (c) { c.checked = p[2].indexOf(c.dataset.p) > -1; }); };
+        b.querySelector("#nsave").onclick = function (e) {
+          A.busy(e.target, async function () {
+            var email = b.querySelector("#ne").value.trim(), pw = b.querySelector("#np").value, r = role.value, perms = {};
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) throw new Error("اكتب بريداً إلكترونياً صحيحاً.");
+            if (pw.length < 8) throw new Error("كلمة المرور 8 أحرف على الأقل.");
+            if (r === "staff") Array.prototype.forEach.call(b.querySelectorAll("[data-p]"), function (c) { if (c.checked) perms[c.dataset.p] = true; });
+            if (r === "staff" && !Object.keys(perms).length && !(await A.confirm("لم تحدد أي صلاحية: سيدخل الموظف اللوحة دون أن يستطيع فعل شيء. متابعة؟", "متابعة"))) return;
+            if (r === "admin" && !(await A.confirm("المدير يملك كل شيء بما فيه إدارة المستخدمين. متأكد؟", "نعم، مدير"))) return;
+            await fn({ action: "create", email: email, password: pw, full_name: b.querySelector("#nn").value.trim() || null, role: r, permissions: perms });
+            close("ok"); A.toast("تم إنشاء الحساب ✔", "ok"); done();
+          });
+        };
+      }
+    });
+  }
+
+  function setPw(u) {
+    A.modal(html`<h2>تعيين كلمة مرور</h2><p dir="ltr"><b>${u.email}</b></p>${pwField("sp")}
+      <div class="row end"><button class="btn" data-mclose="">إلغاء</button><button class="btn pri" id="spsave">حفظ كلمة المرور</button></div>`, {
+      onOpen: function (b, close) {
+        b.querySelector("[data-gen]").onclick = function () { b.querySelector("#sp").value = genPw(); };
+        b.querySelector("#spsave").onclick = function (e) {
+          A.busy(e.target, async function () {
+            var pw = b.querySelector("#sp").value; if (pw.length < 8) throw new Error("كلمة المرور 8 أحرف على الأقل.");
+            await fn({ action: "set_password", user_id: u.id, password: pw }); close("ok"); A.toast("تم تغيير كلمة المرور ✔", "ok");
+          });
+        };
+      }
+    });
+  }
+
+  async function del(u, done) {
+    if (!(await A.confirm("حذف حساب " + u.email + " نهائياً؟ لن يستطيع الدخول مجدداً.", "حذف الحساب", true))) return;
+    try { await fn({ action: "delete", user_id: u.id }); A.toast("تم حذف الحساب ✔", "ok"); done(); } catch (err) { A.toast(err.message, "err"); }
+  }
+
+  function edit(u, done) {
+    var cur = u.role === "admin" ? "admin" : u.role === "staff" ? "staff" : "none";
+    var ks = ALL.filter(function (k) { return u.permissions && u.permissions[k] === true; });
+    A.modal(html`<h2>دور المستخدم</h2><p dir="ltr"><b>${u.email}</b></p>
+      <label class="fld"><span>الاسم (للعرض)</span><input id="un" value="${u.full_name || ""}" maxlength="60"></label>
+      <label class="fld"><span>الدور</span><select id="ur">${opt("none", "بلا صلاحية (لا يدخل اللوحة)", cur === "none")}${opt("staff", "موظف (بصلاحيات أحدّدها)", cur === "staff")}${opt("admin", "مدير (كل الصلاحيات + المستخدمون)", cur === "admin")}</select></label>
+      <div id="sbox"><label class="fld"><span>قالب جاهز</span><select id="up">${PRESETS.map(function (p) { return opt(p[0], p[1], p[0] === "custom"); })}</select></label>
+        <fieldset><legend>الصلاحيات</legend>${PERMS.map(function (p) { return html`<label class="chk"><input type="checkbox" data-p="${p[0]}" ${ks.indexOf(p[0]) > -1 ? "checked" : ""}> ${p[1]}</label>`; })}</fieldset></div>
+      <label class="chk"><input type="checkbox" id="ua" ${u.role ? (u.is_active ? "checked" : "") : "checked"}> الحساب مفعّل</label>
+      <div class="row end"><button class="btn" data-mclose="">إلغاء</button><button class="btn pri" id="usave">حفظ</button></div>`, {
+      onOpen: function (b, close) {
+        var sbox = b.querySelector("#sbox"), role = b.querySelector("#ur");
+        function vis() { sbox.style.display = role.value === "staff" ? "" : "none"; } role.onchange = vis; vis();
+        b.querySelector("#up").onchange = function (e) { var p = PRESETS.filter(function (x) { return x[0] === e.target.value; })[0]; if (p && p[2]) Array.prototype.forEach.call(b.querySelectorAll("[data-p]"), function (c) { c.checked = p[2].indexOf(c.dataset.p) > -1; }); };
+        b.querySelector("#usave").onclick = function (e) {
+          A.busy(e.target, async function () {
+            var r = role.value, name = b.querySelector("#un").value.trim() || null, act = b.querySelector("#ua").checked;
+            if (r === "none") { if (u.role) { if (!(await A.confirm("سحب كل الصلاحيات من هذا الحساب؟", "سحب", true))) return; await A.rest("DELETE", "profiles?id=eq." + u.id, undefined, { minimal: true }); } close("ok"); A.toast("تم الحفظ ✔", "ok"); return done(); }
+            var perms = {}; if (r === "staff") Array.prototype.forEach.call(b.querySelectorAll("[data-p]"), function (c) { if (c.checked) perms[c.dataset.p] = true; });
+            if (r === "staff" && !Object.keys(perms).length && !(await A.confirm("لم تحدد أي صلاحية: سيدخل الموظف اللوحة دون أن يستطيع فعل شيء. متابعة؟", "متابعة"))) return;
+            if (r === "admin" && u.role !== "admin" && !(await A.confirm("المدير يملك كل شيء بما فيه إدارة المستخدمين. متأكد؟", "نعم، مدير"))) return;
+            try { await A.rest("POST", "profiles?on_conflict=id", { id: u.id, full_name: name, role: r, is_active: act, permissions: perms }, { minimal: true, upsert: true }); }
+            catch (err) { if (/last_admin_protected/.test((err.raw && err.raw.message) || err.message || "")) throw new Error("لا يمكن تنزيل أو تعطيل آخر مدير فعّال."); throw err; }
+            close("ok"); A.toast("تم الحفظ ✔", "ok"); done();
+          });
+        };
+      }
+    });
+  }
+})();
+
+/* لوحة الإدارة — «فحص النظام»: اختبار حقيقي بحساب المدير نفسه على القاعدة الحقيقية، بلا كلمات مرور في المحادثة.
+   ينشئ عطراً تجريبياً مؤقتاً (zz-selftest-…) بصورة، يعدّله ويتحقق من ظهوره في المتجر، ثم يحذفه ويتحقق من خلو القاعدة والتخزين منه.
+   لا يلمس أي بيانات حقيقية (يعمل فقط على صفوف بالبادئة zz-selftest- التي ينشئها بنفسه). */
+(function () {
+  "use strict";
+  var A = window.ADM, html = A.html, raw = A.raw, mount = A.mount, V = A.views;
+  var PNG = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==";
+  function png() { var b = atob(PNG), u = new Uint8Array(b.length); for (var i = 0; i < b.length; i++) u[i] = b.charCodeAt(i); return new Blob([u], { type: "image/png" }); }
+  async function anon(path, opts) { // طلب بالمفتاح العام فقط = زائر غير مسجّل
+    opts = opts || {}; opts.headers = Object.assign({ apikey: A.cfg.key }, opts.headers); return fetch(A.cfg.url + path, opts);
+  }
+
+  V.selfcheck = async function (root) {
+    if (A.role !== "admin") return mount(root, html`<h1>فحص النظام</h1><p class="muted">هذا القسم للمدير فقط.</p>`);
+    mount(root, html`<h1>فحص النظام</h1><p class="muted">اختبار حقيقي لحسابك وللقاعدة والتخزين وظهور البيانات في المتجر. يُنشئ عطراً تجريبياً مؤقتاً ثم يحذفه بالكامل ويتحقق من النظافة. لا يغيّر أي بيانات حقيقية ولا كلمات مرور ولا حسابات.</p>
+      <div class="row gap"><button class="btn pri" id="go">▶ تشغيل الفحص</button></div><div class="card" id="out"><p class="muted">اضغط «تشغيل الفحص».</p></div>`);
+    var out = root.querySelector("#out");
+    root.querySelector("#go").onclick = function (e) { A.busy(e.target, async function () { await run(out); }); };
+  };
+
+  async function run(out) {
+    var rows = [], fails = 0;
+    function draw(final) {
+      out.innerHTML = '<ul class="chk-list">' + rows.map(function (r) { return '<li class="' + r[0] + '">' + (r[0] === "ok" ? "✔" : r[0] === "warn" ? "⚠" : r[0] === "bad" ? "✘" : "…") + " " + A.esc(r[1]) + (r[2] ? "<small>" + A.esc(r[2]) + "</small>" : "") + "</li>"; }).join("") + "</ul>" +
+        (final ? '<p><b>' + (fails ? "❌ فشلت " + fails + " فحوص — أرسل لي لقطة شاشة لهذه الصفحة." : "✅ نجحت كل الفحوص الحرجة.") + "</b></p>" : "");
+    }
+    function add(st, name, d) { if (st === "bad") fails++; rows.push([st, name, d || ""]); draw(false); }
+    async function step(name, fn, warnOnly) { try { var d = await fn(); add("ok", name, d || ""); return true; } catch (e) { add(warnOnly ? "warn" : "bad", name, e && e.message ? e.message : String(e)); return false; } }
+    function must(c, m) { if (!c) throw new Error(m); }
+    var id = null, slug = "zz-selftest-" + Math.random().toString(36).slice(2, 8), path = null, sess = A.session() || {}, uid = sess.user && sess.user.id;
+
+    // ===== أ) الإعداد والحساب =====
+    await step("الإعداد: رابط Supabase والمفتاح العام موجودان", async function () { must(A.cfg.url && A.cfg.key, "ناقص"); must(!new RegExp("service"+"_role|sb_"+"secret").test(A.cfg.key), "المفتاح سري!"); try { var p = JSON.parse(atob(A.cfg.key.split(".")[1] || "")); must(p.role !== "service"+"_role", "المفتاح service_role!"); } catch (e) { if (e.message === "المفتاح service_role!") throw e; } return A.cfg.url; });
+    await step("الدخول: جلسة صالحة لحساب مسجّل", async function () { must(uid, "لا جلسة"); return (sess.user && sess.user.email) || ""; });
+    await step("الصلاحية: ملف الإدارة = مدير مفعّل", async function () { var r = await A.get("profiles?select=role,is_active&id=eq." + uid); must(r[0] && r[0].role === "admin" && r[0].is_active === true, "الحساب ليس مديراً مفعّلاً"); return "admin / مفعّل"; });
+    await step("المستخدمون: قراءة قائمة الحسابات (للمدير فقط)", async function () { var r = (await A.rest("POST", "rpc/admin_list_users", {})).data; must(Array.isArray(r) && r.length >= 1, "فشلت"); return r.length + " حساب"; });
+
+    // ===== ب) إعدادات Supabase Auth (عامة ومقروءة من المتصفح) =====
+    await step("Auth: التسجيل العام مغلق (disable_signup)", async function () {
+      var r = await anon("/auth/v1/settings"), j = await r.json(); must(r.ok, "تعذّرت القراءة"); must(j.disable_signup === true, "التسجيل العام مفتوح! أطفئ Allow new users to sign up من Authentication ← Sign In / Providers");
+      return "مغلق";
+    });
+    await step("Auth: مزودو الدخول المفعّلون", async function () { var j = await (await anon("/auth/v1/settings")).json(), on = Object.keys(j.external || {}).filter(function (k) { return j.external[k] && k !== "email" && k !== "phone"; }); must(!on.length, "مفعّل: " + on.join("، ") + " (غير مطلوب؛ أطفئه)"); return "البريد وكلمة المرور فقط"; }, true);
+
+    // ===== ج) الزائر غير المسجل =====
+    await step("الزائر: لا يقرأ الطلبات", async function () { var r = await anon("/rest/v1/orders?select=id&limit=1"); var j = await r.json().catch(function () { return null; }); must(Array.isArray(j) && j.length === 0 || r.status === 401 || r.status === 403, "ظهرت بيانات!"); return "لا شيء"; });
+    await step("الزائر: لا يقرأ ملفات الإدارة", async function () { var r = await anon("/rest/v1/profiles?select=id&limit=1"), j = await r.json().catch(function () { return null; }); must(Array.isArray(j) && j.length === 0 || r.status >= 400, "ظهرت بيانات!"); return "لا شيء"; });
+    await step("الزائر: لا يستطيع إضافة عطر", async function () { var r = await anon("/rest/v1/products", { method: "POST", headers: { "Content-Type": "application/json", Prefer: "return=minimal" }, body: JSON.stringify({ slug: "zz-visitor-should-fail", name_ar: "x", name_fr: "x", brand: "x", price: 1 }) }); must(r.status === 401 || r.status === 403, "قُبلت الكتابة! (" + r.status + ")"); return "مرفوض (" + r.status + ")"; });
+    await step("الزائر: لا يعدّل التوصيل ولا الإعدادات", async function () { var a = await anon("/rest/v1/delivery_zones?wilaya_code=eq.12", { method: "PATCH", headers: { "Content-Type": "application/json", Prefer: "return=representation" }, body: JSON.stringify({ fee_dzd: 1 }) }); var t = await a.text(); must(a.status >= 400 || t === "[]", "قُبل التعديل!"); var b = await anon("/rest/v1/store_settings?key=eq.currency", { method: "PATCH", headers: { "Content-Type": "application/json", Prefer: "return=representation" }, body: JSON.stringify({ value: "x" }) }); var t2 = await b.text(); must(b.status >= 400 || t2 === "[]", "قُبل التعديل!"); return "مرفوض"; });
+    await step("الزائر: لا يرفع ملفاً ولا يستدعي قائمة المستخدمين", async function () { var a = await anon("/storage/v1/object/" + A.cfg.bucket + "/00000000-0000-4000-8000-000000000000/x.png", { method: "POST", headers: { "Content-Type": "image/png" }, body: png() }); must(a.status === 400 || a.status === 401 || a.status === 403, "قُبل الرفع! (" + a.status + ")"); var b = await anon("/rest/v1/rpc/admin_list_users", { method: "POST", headers: { "Content-Type": "application/json" }, body: "{}" }); must(b.status >= 400, "قُبل الاستدعاء!"); return "مرفوض"; });
+
+    // ===== د) عطر تجريبي كامل =====
+    var created = await step("إضافة عطر تجريبي (مسودة)", async function () {
+      var r = await A.rest("POST", "products", { slug: slug, name_ar: "عطر فحص مؤقت", name_fr: "Parfum test", brand: "ZZ-TEST", price: 1111, status: "draft" }); id = r.data[0].id; must(id, "لا معرّف"); return slug;
+    });
+    if (created) {
+      await step("المسودة مخفية عن الزائر", async function () { var j = await (await anon("/rest/v1/products?slug=eq." + slug + "&select=id")).json(); must(Array.isArray(j) && j.length === 0, "ظاهرة للزائر!"); });
+      await step("المخزون: يُنشأ تلقائياً ويُعدَّل", async function () { await A.rest("PATCH", "inventory?product_id=eq." + id, { quantity: 5 }, { minimal: true }); var r = await A.get("inventory?select=quantity&product_id=eq." + id); must(r[0] && r[0].quantity === 5, "لم يُحفظ"); return "5"; });
+      await step("رفع صورة تجريبية إلى Storage", async function () { path = id + "/selftest.png"; await A.upload(path, png()); var r = await A.rest("POST", "product_images", { product_id: id, storage_path: path, sort_order: 0, is_primary: true, alt_ar: "فحص" }); must(r.data[0], "لا صف"); return path; });
+      await step("الصورة متاحة علناً عبر الرابط العام", async function () { var r = await fetch(A.publicUrl(path), { cache: "no-store" }); must(r.ok, "HTTP " + r.status); return "HTTP " + r.status; });
+      await step("النشر ثم ظهور العطر في المتجر للزائر (بالسعر والصورة والمخزون)", async function () {
+        await A.rest("PATCH", "products?id=eq." + id, { status: "published" }, { minimal: true });
+        var j = await (await anon("/rest/v1/storefront_products?slug=eq." + slug + "&select=slug,price,images,stock_status,stock_qty")).json();
+        must(Array.isArray(j) && j.length === 1, "لا يظهر في storefront_products"); must(Number(j[0].price) === 1111, "السعر مختلف"); must(j[0].images && j[0].images.length === 1, "الصورة لا تظهر"); must(j[0].stock_status === "in_stock" && j[0].stock_qty === 5, "المخزون مختلف"); return "السعر 1111 · صورة · متوفر 5";
+      });
+      await step("التعديل: السعر الجديد يظهر للزائر", async function () { await A.rest("PATCH", "products?id=eq." + id, { price: 2222 }, { minimal: true }); var j = await (await anon("/rest/v1/storefront_products?slug=eq." + slug + "&select=price")).json(); must(j[0] && Number(j[0].price) === 2222, "لم يتغير"); return "2222"; });
+    }
+    // ===== هـ) التنظيف (يعمل دائماً) =====
+    var clean = true;
+    if (id) {
+      clean = await step("حذف الصورة من Storage", async function () { if (path) await A.removeFiles([path]); return "تم"; }) && clean;
+      clean = await step("حذف العطر التجريبي (والصور والمخزون المرتبطة)", async function () { await A.rest("DELETE", "products?id=eq." + id, undefined, { minimal: true }); return "تم"; }) && clean;
+    }
+    await step("النظافة: لا بقايا zz-selftest في العطور", async function () { var r = await A.get("products?select=id&slug=like.zz-selftest-*"); must(r.length === 0, r.length + " بقايا!"); return "0"; });
+    await step("النظافة: لا بقايا في المخزون وصور المنتجات", async function () { var a = await A.get("product_images?select=id&storage_path=like.*selftest.png"); must(a.length === 0, "صور متبقية"); if (id) { var b = await A.get("inventory?select=product_id&product_id=eq." + id); must(b.length === 0, "مخزون متبقٍ"); } return "0"; });
+    await step("النظافة: لا ملف متبقٍ في Storage", async function () { if (!id) return "لا شيء"; var r = await A.req(A.cfg.url + "/storage/v1/object/list/" + A.cfg.bucket, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ prefix: id, limit: 10 }) }), j = await r.json(); must(r.ok && Array.isArray(j) && j.length === 0, "ملفات متبقية: " + (Array.isArray(j) ? j.length : r.status)); return "0"; });
+
+    // ===== و) الطلبات وواتساب =====
+    await step("الطلبات الحقيقية مفعّلة (channel = supabase)", async function () { var c = (window.ATHAR_CONFIG || {}).order || {}; must(c.channel === "supabase", "القناة = " + c.channel + " (غير مفعّلة)"); return "supabase"; });
+    await step("واتساب: الرابط الحالي كما هو", async function () { var u = ((window.ATHAR_CONFIG || {}).social || {}).whatsapp; must(/wa\.me\/213771683294/.test(u || ""), "تغيّر: " + u); return u; });
+    await step("لا طلبات حقيقية في القاعدة", async function () { var r = await A.rest("GET", "orders?select=id&limit=1", undefined, { count: true }); return "عدد الطلبات: " + ((r.count == null) ? r.data.length : r.count); }, true);
+    draw(true);
+  }
+})();
+
+/* لوحة إدارة أثر ديزاد — الدخول والتوجيه والقائمة */
+(function () {
+  "use strict";
+  var A = window.ADM, html = A.html, raw = A.raw, mount = A.mount, esc = A.esc;
+  var app = document.getElementById("app");
+  /* [المسار، العنوان، الأيقونة، الصلاحية المطلوبة]: null = كل مخوَّل، "@admin" = المدير فقط */
+  var NAV = [["dashboard", "اللوحة", "◧", null], ["products", "العطور", "✦", "products"], ["inventory", "المخزون", "▤", "inventory"], ["categories", "التصنيفات", "❖", "categories"], ["delivery", "التوصيل", "➤", "delivery"], ["orders", "الطلبات", "☰", "orders"], ["users", "المستخدمون والصلاحيات", "👥", "@admin"], ["selfcheck", "فحص النظام", "✔", "@admin"], ["settings", "الإعدادات", "⚙", null]];
+  function allowedNav(n) { return !n[3] || (n[3] === "@admin" ? A.role === "admin" : A.can(n[3])); }
+
+
+  /* ---------- جرس الطلبات الجديدة ---------- */
+  var bellT = null, seen = null, pending = [], snd = false, SK = "athar_admin_bell";
+  function pref(k, v) { try { if (v === undefined) return localStorage.getItem(SK + k); localStorage.setItem(SK + k, v); } catch (e) { } }
+  function beep() { if (pref("snd") !== "1") return; try { var C = window.AudioContext || window.webkitAudioContext, c = new C(), o = c.createOscillator(), g = c.createGain(); o.connect(g); g.connect(c.destination); o.frequency.value = 880; g.gain.setValueAtTime(.2, c.currentTime); g.gain.exponentialRampToValueAtTime(.001, c.currentTime + .7); o.start(); o.stop(c.currentTime + .7); } catch (e) { } }
+  function paint() {
+    var bc = document.getElementById("bc"); if (!bc) return; bc.hidden = !pending.length; bc.textContent = pending.length > 99 ? "99+" : pending.length;
+    document.title = (pending.length ? "(" + pending.length + ") " : "") + "لوحة إدارة أثر ديزاد";
+  }
+  async function poll() {
+    try {
+      var rows = await A.get("orders?select=id,order_number,customer_name,total_amount,created_at&status=eq.pending&order=created_at.desc&limit=100"); pending = rows;
+      var ids = rows.map(function (o) { return o.id; });
+      if (seen === null) seen = ids; else {
+        var fresh = rows.filter(function (o) { return seen.indexOf(o.id) < 0; }); seen = seen.concat(fresh.map(function (o) { return o.id; }));
+        if (fresh.length) {
+          A.toast("🔔 طلب جديد: " + fresh[0].order_number + (fresh.length > 1 ? " (+" + (fresh.length - 1) + ")" : ""), "ok"); beep();
+          try { if (window.Notification && Notification.permission === "granted" && pref("ntf") === "1") new Notification("طلب جديد — أثر ديزاد", { body: fresh[0].order_number + " · " + A.money(fresh[0].total_amount) }); } catch (e) { }
+        }
+      }
+      paint();
+    } catch (e) { if (e && e.auth) A.onAuthLost(); }
+  }
+  function bellInit() {
+    seen = null; pending = []; poll(); clearInterval(bellT); bellT = setInterval(poll, window.ATHAR_ADMIN_POLL || 30000);
+    document.getElementById("bell").onclick = function () {
+      var can = !!window.Notification;
+      A.modal(html`<h2>🔔 الطلبات الجديدة (${pending.length})</h2>${pending.length ? html`<ul class="plain">${pending.slice(0, 10).map(function (o) { return html`<li><b>${o.order_number}</b> — ${o.customer_name} — ${A.money(o.total_amount)}<small>${A.dt(o.created_at)}</small></li>`; })}</ul>` : html`<p class="muted">لا طلبات جديدة. (استقبال الطلبات الحقيقية غير مفعّل بعد.)</p>`}
+        <label class="chk"><input type="checkbox" id="bs" ${pref("snd") === "1" ? "checked" : ""}> صوت عند وصول طلب جديد</label>
+        ${can ? html`<label class="chk"><input type="checkbox" id="bn" ${pref("ntf") === "1" && Notification.permission === "granted" ? "checked" : ""}> إشعار على الجهاز</label>` : ""}
+        <p class="muted small">التنبيه يعمل ما دامت صفحة اللوحة مفتوحة (يتحقق كل 30 ثانية). على الهاتف أبقِ الصفحة مفتوحة.</p>
+        <div class="row end"><button class="btn" data-mclose="">إغلاق</button><a class="btn pri" href="#/orders" data-mclose="go">فتح الطلبات</a></div>`, {
+        onOpen: function (b) {
+          b.querySelector("#bs").onchange = function (e) { pref("snd", e.target.checked ? "1" : "0"); if (e.target.checked) beep(); };
+          var n = b.querySelector("#bn"); if (n) n.onchange = async function (e) { if (e.target.checked) { var r = Notification.permission === "granted" ? "granted" : await Notification.requestPermission(); e.target.checked = r === "granted"; pref("ntf", r === "granted" ? "1" : "0"); } else pref("ntf", "0"); };
+        }
+      });
+    };
+  }
+  function bellStop() { clearInterval(bellT); bellT = null; document.title = "لوحة إدارة أثر ديزاد"; }
+
+  function loginScreen(msg) {
+    mount(app, html`<main class="login"><form id="lf" class="lbox" autocomplete="on" novalidate><div class="logo">أثر ديزاد</div><div class="sub">لوحة الإدارة</div>
+      ${A.cfg.ready ? "" : html`<p class="err">إعداد الاتصال بالقاعدة غير موجود.</p>`}${msg ? html`<p class="err" role="alert">${msg}</p>` : ""}
+      <label class="fld"><span>البريد الإلكتروني</span><input id="em" type="email" dir="ltr" autocomplete="username" inputmode="email" required></label>
+      <label class="fld"><span>كلمة المرور</span><input id="pw" type="password" dir="ltr" autocomplete="current-password" required></label>
+      <button class="btn pri wide" type="submit">دخول</button><p class="muted small">دخول المخوَّلين فقط. لا يوجد تسجيل عام.</p></form></main>`);
+    var f = document.getElementById("lf");
+    f.onsubmit = async function (e) {
+      e.preventDefault(); var em = f.em.value.trim(), pw = f.pw.value;
+      if (!em || !pw) return loginScreen("اكتب البريد وكلمة المرور.");
+      var b = f.querySelector("button"); b.disabled = true; b.textContent = "…";
+      try { await A.login(em, pw); await start(); } catch (err) { loginScreen(err.message); }
+    };
+  }
+
+  async function profile() {
+    var s = A.session(); if (!s || !s.user || !s.user.id) return null;
+    var r = await A.get("profiles?select=role,is_active,full_name,permissions&id=eq." + encodeURIComponent(s.user.id));
+    var p = r[0]; return p && p.is_active && (p.role === "admin" || p.role === "staff") ? p : null;
+  }
+
+  async function start() {
+    A.onAuthLost = function () { bellStop(); A.logout(); loginScreen("انتهت الجلسة، سجّل الدخول من جديد."); };
+    if (!A.cfg.ready) return loginScreen();
+    if (!A.loadS()) return loginScreen();
+    var p;
+    try { p = await profile(); } catch (e) { if (e.auth) return loginScreen("انتهت الجلسة، سجّل الدخول من جديد."); p = null; }
+    if (!p) { await A.logout(); return loginScreen("هذا الحساب غير مخوَّل للدخول إلى لوحة الإدارة."); }
+    A.role = p.role; A.perms = p.permissions || {}; shell(p);
+  }
+
+  function shell(p) {
+    var items = NAV.filter(allowedNav);
+    mount(app, html`<div class="shell"><header class="top"><button class="menu" id="mb" aria-label="القائمة" aria-expanded="false">☰</button><b class="brand">أثر ديزاد <small>الإدارة</small></b><button class="bell" id="bell" aria-label="تنبيهات الطلبات الجديدة">🔔<span id="bc" hidden>0</span></button><span class="who">${p.full_name || ""} · ${A.role === "admin" ? "مدير" : "موظف"}</span><button class="btn sm" id="lo">خروج</button></header>
+      <nav class="nav" id="nav" aria-label="الأقسام">${items.map(function (n) { return html`<a data-r="${n[0]}" href="#/${n[0]}"><i aria-hidden="true">${n[2]}</i>${n[1]}</a>`; })}${/^https?:$/.test(location.protocol) && !/standalone/.test(location.pathname) ? html`<a href="../index.html" target="_blank" rel="noopener"><i aria-hidden="true">↗</i>عرض المتجر</a>` : ""}</nav>
+      <main id="view" tabindex="-1"></main></div><div id="toasts" aria-live="polite"></div>`);
+    A.root = document.getElementById("view");
+    document.getElementById("lo").onclick = function () { bellStop(); A.logout().then(function () { loginScreen(); }); };
+    var nav = document.getElementById("nav"), mb = document.getElementById("mb");
+    mb.onclick = function () { var o = nav.classList.toggle("open"); mb.setAttribute("aria-expanded", o); };
+    nav.onclick = function () { nav.classList.remove("open"); mb.setAttribute("aria-expanded", "false"); };
+    if (A.can("orders")) bellInit(); else { var bb = document.getElementById("bell"); if (bb) bb.style.display = "none"; }
+    window.onhashchange = route; route();
+  }
+
+  async function route() {
+    var parts = (location.hash.replace(/^#\/?/, "") || "dashboard").split("/"), name = parts[0], v = A.views[name];
+    var allowed = NAV.filter(function (n) { return n[0] === name && allowedNav(n); }).length;
+    if (!v || !allowed) { location.hash = "#/dashboard"; return; }
+    Array.prototype.forEach.call(document.querySelectorAll("#nav a[data-r]"), function (a) { a.classList.toggle("on", a.dataset.r === name); });
+    /* حاوية جديدة لكل تنقّل: أي عرض قديم ما زال يحمّل يكتب في حاوية منفصلة ولا يطغى على العرض الحالي */
+    var holder = document.getElementById("view"), root = document.createElement("div"); holder.innerHTML = ""; holder.appendChild(root); A.root = root;
+    try { await v(root, parts[1]); } catch (e) { if (e.auth) A.onAuthLost(); else mount(root, html`<h1>تعذّر التحميل</h1><p class="err">${e.message}</p>`); }
+    window.scrollTo(0, 0);
+  }
+
+  start();
+})();
+
+</script>
+</body>
+</html>
